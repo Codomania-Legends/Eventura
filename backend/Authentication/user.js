@@ -1,10 +1,15 @@
 const jwt = require('jsonwebtoken');
-
+require("dotenv").config({ path : "./Service/.env" })
 const Secrect_Key = process.env.SECRET_KEY
 
 function SetToken( payload ) {
     const token = jwt.sign( payload , Secrect_Key)
     return token
+}
+
+function GetUsername( token ){
+    const decodeData = jwt.decode( token )
+    return decodeData.username
 }
 
 function checkToken( token ){
@@ -14,5 +19,6 @@ function checkToken( token ){
 
 module.exports = {
     SetToken,
-    checkToken
+    checkToken,
+    GetUsername
 }

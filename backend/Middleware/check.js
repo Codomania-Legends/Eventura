@@ -1,16 +1,17 @@
-const { checkToken } = require("../Authentication/user")
+const { checkToken, GetUsername } = require("../Authentication/user")
 
 function Restrict_LoginUserOnly( req , res , next ) {
     if( !req.cookies ) res.json( { msg : "Restrict to login user only" } )
     const token = req.cookies?.token
-    const username = req.body?.username || req.params?.username || req.query?.username
 
-    if (!token || !username) {
+    if (!token) {
         return res.status(401).json({ msg: "Restricted to logged-in users only" });
     }
-    console.log("token : " , token)
     const check = checkToken( token )
     if( check ) {
+        const username = GetUsername(token)
+        req.username = username
+        console.log(username)
         return next()
     }
     if( !check ){
