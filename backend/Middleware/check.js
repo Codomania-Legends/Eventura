@@ -8,8 +8,8 @@ function Restrict_LoginUserOnly( req , res , next ) {
     if (!token || !username) {
         return res.status(401).json({ msg: "Restricted to logged-in users only" });
     }
-    
-    const check = checkToken( username , token )
+    console.log("token : " , token)
+    const check = checkToken( token )
     if( check ) {
         return next()
     }

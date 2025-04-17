@@ -1,8 +1,9 @@
-const { SetToken, GetToken } = require("../Authentication/user")
+const { SetToken } = require("../Authentication/user")
 const { USER } = require("../MongoDB/user")
 const bcrypt = require("bcrypt")
 
 async function SignupUser( req , res ) {
+    if( !req.body ) return res.json({msg : "Body is required"})
     const { username , password } = req.body
     if( !username || !password ) return res.json({ msg : "username password required" })
     
@@ -19,7 +20,7 @@ async function SignupUser( req , res ) {
     } )
 
     if( result ){
-        token = SetToken(username , { username })
+        token = SetToken({ username })
         res.cookie( "token" , token )
         return res.json( { msg : "user logged in" } )
     }
@@ -30,16 +31,18 @@ async function SignupUser( req , res ) {
 }
 
 async function LoginUser( req , res ) {
+    if( !req.body ) return res.json({msg : "Body is required"})
     const { username , password } = req.body
     if( !username || !password ) return res.json({ msg : "username password required" })
     
     const find_user = await USER.findOne({username})
+    if( !find_user ) return res.json({msg : "User not found"})
     const isMatch = await bcrypt.compare( password , find_user.password )
     if( !isMatch ) return res.json({msg : "Invalid password"})
     if( find_user ) {
-        const token = SetToken(username , {username})
+        const token = SetToken({username})
         res.cookie("token" , token)
-        return res.json( {msg : "User logged in"} )
+        return res.json( {msg : "Login Successs"} )
     }
     else {
         return res.json( { msg : "Invalid username password" } )
