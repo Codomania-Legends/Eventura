@@ -2,8 +2,10 @@ const mongoose = require("mongoose")
 
 const Schema = new mongoose.Schema({
     "eventName" : { type : String , required : true },
+    "category" : { type : String , required : true , enum : [ "Competition", "Fest", "Party", "Workshop/Presentation" ] },
     "location" : { type : String , required : true },
-    "time" : { type : String , required : true },
+    "time" : { type : Date , required : true },
+    "organizedBy" : { type : String , required : true },
     "reviews" : [
         new mongoose.Schema({
             "username" : {
@@ -21,10 +23,12 @@ const Schema = new mongoose.Schema({
         } , { _id : false })
     ],
     "total_registrations" : {
-        type : Number
+        type : Number,
+        default : 0
     },
     "total_attended" : {
-        type : Number
+        type : Number,
+        default : 0
     },
 })
 

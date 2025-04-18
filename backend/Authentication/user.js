@@ -1,26 +1,24 @@
 const jwt = require('jsonwebtoken');
-const Secrect_Key = "VidhiAnshul"
+require("dotenv").config({ path : "./Service/.env" })
+const Secrect_Key = process.env.SECRET_KEY
 
-const MapUser_Token = new Map()
-
-function SetToken( user , payload ) {
+function SetToken( payload ) {
     const token = jwt.sign( payload , Secrect_Key)
-    MapUser_Token.set( user , token )
     return token
 }
 
-function GetToken( user ){
-    return MapUser_Token.get(user)
+function GetUsername( token ){
+    const decodeData = jwt.decode( token )
+    return decodeData.username
 }
 
-function checkToken( user , token ){
-    const storedToken = MapUser_Token.get(user)
-    if( storedToken !== token ) return false
-    return jwt.verify( storedToken , Secrect_Key )
+function checkToken( token ){
+    const isValid = jwt.verify( token , Secrect_Key )
+    return isValid
 }
 
 module.exports = {
     SetToken,
-    GetToken,
-    checkToken
+    checkToken,
+    GetUsername
 }
