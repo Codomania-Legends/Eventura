@@ -24,5 +24,6 @@ body {
     background-image: url('/assets/backgroundImg.png');
     background-size: cover;
     overflow-y: scroll;
+    scrollbar-width: none;
     overflow-x: hidden;
 }

@@ -46,10 +46,15 @@ span.text {
 button.know-more-btn {
     height: 45%;
     width: 12%;
-    border-radius: 5em;
+    border-radius: 1em;
     border: none;
     color: white;
     background-color: #182F5B;
-    box-shadow: 4px 4px 4px rgb(255 255 255 / 25%);
     font-size: large;
+    transition: 0.5s;
+}
+.know-more-btn:hover{
+    box-shadow: 4px 4px 4px rgb(255 255 255 / 25%);
+    border-radius: 5em;
+    transition: 1s;
 }
