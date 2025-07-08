@@ -9,10 +9,13 @@ function App() {
 
   return (
     <>
+    <div className="components">
       <Home/>
       <Pastevent/>
       <Options />
       <FooterPage/>
+
+    </div>
     </>
   )
 }

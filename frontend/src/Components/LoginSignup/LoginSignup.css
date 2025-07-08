@@ -1,0 +1,65 @@
+.main-sign, .main-login{
+    
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background-image: url("/loginBack.png");
+    background-size: cover;
+    justify-content: end;
+}
+section.signup-section.flex, .login-section.flex {
+    height: 85%;
+    width: 35%;
+    color: white;
+    flex-direction: column;
+}
+section.sub-head-sec {
+    height: 20%;
+    font-size: xx-large;
+    width: 100%;
+}
+section.sub-detail-signup, .sub-detail-login {
+    height: 60%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+}
+.login-username, .login-password, .sign-username, .sign-password {
+    height: 30%;
+    width: 60%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.loginusername, .loginpassword, .signusername, .signpassword {
+    height: 40%;
+    width: 100%;
+    border-radius: 3em;
+    padding-left: 1em;
+}
+.identification.flex {
+    height: 20%;
+    width: 60%;
+}
+.student, .admin, .profesor {
+    height: 50%;
+    width: 25%;
+    border-radius: 2em;
+}
+.identification.flex {
+    height: 20%;
+    width: 60%;
+    justify-content: space-evenly;
+}
+.submission.flex {
+    height: 20%;
+    width: 60%;
+}
+.submitting-login, .submitting-sign {
+    height: 55%;
+    width: 40%;
+    border-radius: 2em;
+    color: white;
+    background-color: #0B384D;
+}
