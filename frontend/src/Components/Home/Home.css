@@ -1,0 +1,63 @@
+.main-home{
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+}
+a{
+    color: white;
+}
+.home-content {
+    height: 90%;
+    width: 100%;
+}
+.main-head-text {
+    height: 50%;
+    width: 100%;
+    color: white;
+    flex-direction: column;
+    justify-content: end;
+}
+.bigtext{
+    height: 30%;
+    font-size: xxx-large;
+    position: relative;
+}
+.first {
+    right: 12%;
+}
+.second {
+    left: 10%;
+}
+span.text {
+    font-size: 2em;
+    font-weight: 600;
+}
+.home-quote-text {
+    height: 35%;
+    width: 100%;
+    color: white;
+}
+.quote-text {
+    width: 55%;
+    font-size: larger;
+    flex-direction: column;
+}
+.know-more {
+    height: 15%;
+    align-items: baseline;
+}
+button.know-more-btn {
+    height: 45%;
+    width: 12%;
+    border-radius: 1em;
+    border: none;
+    color: white;
+    background-color: #182F5B;
+    font-size: large;
+    transition: 0.5s;
+}
+.know-more-btn:hover{
+    box-shadow: 4px 4px 4px rgb(255 255 255 / 25%);
+    border-radius: 5em;
+    transition: 1s;
+}
