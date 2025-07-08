@@ -15,3 +15,6 @@ added the page for option
 
 #5th commit:
 added and enhanced animation and also created the footer page
+
+#6th commit:
+created login and signup page
