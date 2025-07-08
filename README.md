@@ -33,6 +33,8 @@ A project built during the HackOrbit Hackathon
 - *Frontend:* React.js, Tailwind CSS / Custom CSS
 - *Animations:* GSAP + ScrollTrigger
 - *Icons:* Font Awesome
+- *Backend* NodeJS, MongoDB, Express
+- *Security* dotenv
 - *Version Control:* Git & GitHub
 
 ---
