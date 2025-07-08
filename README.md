@@ -5,4 +5,7 @@ An event management system for the HackOrbit hackathon
 created an app and added all neccessary modules
 
 #2nd commit:
-created navbar
+created navbar and started home page
+
+#3rd commit:
+completed home page
