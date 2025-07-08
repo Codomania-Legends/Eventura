@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Home.css'
+import { useNavigate } from 'react-router'
 function Home() {
   return (
     <>
@@ -25,7 +26,7 @@ function Home() {
               </div>
               <div className="know-more flex">
                 <button className="know-more-btn">
-                  Know More <i className='fa-solid fa-chevron-down'></i>
+                  <a href="#pastpage">Know More <i className='fa-solid fa-chevron-down'></i></a>
                 </button>
               </div>
             </div>
