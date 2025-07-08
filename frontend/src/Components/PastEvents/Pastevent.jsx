@@ -23,12 +23,13 @@ function Pastevent() {
           x: '-15em',
           y: '4em',
           rotate: -10,
-          duration: 0.6,
+          duration: 0.51,
           ease: 'linear',
           keyframes: [
-            { x: '-5em', y: '1em', rotate: -3, duration: 0.2 },
-            { x: '-10em', y: '2em', rotate: -6, duration: 0.2 },
-            { x: '-15em', y: '4em', rotate: -10, duration: 0.2 },
+            { x: 0, y: 0, rotate: 0, duration: 0.17 },
+            { x: '-5em', y: '1em', rotate: -3, duration: 0.17 },
+            { x: '-10em', y: '2em', rotate: -6, duration: 0.17 },
+            { x: '-15em', y: '4em', rotate: -10, duration: 0.17 },
           ],
         }
       );
@@ -40,12 +41,13 @@ function Pastevent() {
           x: '15em',
           y: '4em',
           rotate: 10,
-          duration: 0.6,
+          duration: 0.51,
           ease: 'linear',
           keyframes: [
-            { x: '5em', y: '1em', rotate: 3, duration: 0.2 },
-            { x: '10em', y: '2em', rotate: 6, duration: 0.2 },
-            { x: '15em', y: '4em', rotate: 10, duration: 0.2 },
+            { x: 0, y: 0, rotate: 0, duration: 0.17 },
+            { x: '5em', y: '1em', rotate: 3, duration: 0.17 },
+            { x: '10em', y: '2em', rotate: 6, duration: 0.17 },
+            { x: '15em', y: '4em', rotate: 10, duration: 0.17 },
           ],
         }
       );
