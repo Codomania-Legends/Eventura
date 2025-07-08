@@ -8,7 +8,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 2em;
     position: absolute;
-    animation: Animate-box1 2s linear forwards;
+    /* animation: Animate-box1 2s linear forwards; */
     transition: all 1s ease;
     z-index: 0;
     box-shadow: -10px 12px 10px rgb(120 120 120 / 25%);
@@ -24,7 +24,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 2em;
     position: absolute;
-    animation: Animate-box2 2s linear forwards;
+    /* animation: Animate-box2 2s linear forwards; */
     transition: all 1s ease;
     z-index: 0;
     box-shadow: 10px 12px 10px rgb(120 120 120 / 25%);

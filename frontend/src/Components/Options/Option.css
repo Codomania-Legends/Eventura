@@ -26,6 +26,7 @@ section.section2 {
     width: 30%;
     border: none;
     outline: none;
+    background-color: white;
     border-radius: 1em;
     font-size: medium;
 }

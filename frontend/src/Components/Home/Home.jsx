@@ -1,8 +1,52 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef } from 'react'
 import Navbar from '../Navbar/Navbar'
 import './Home.css'
-import { useNavigate } from 'react-router'
+import { gsap } from 'gsap';
+import { SplitText } from 'gsap/SplitText';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
 function Home() {
+  const splitRef = useRef();
+
+  useEffect(() => {
+    let split;
+    const animate = () => {
+      if (splitRef.current) splitRef.current.revert();
+      split = new SplitText('.text', { type: 'lines,words' });
+      splitRef.current = split;
+      gsap.set(split.lines, { clearProps: 'all' });
+      gsap.from(split.lines, {
+        rotationX: -100,
+        transformOrigin: '50% 50% -160px',
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3',
+        stagger: 0.25,
+      });
+    };
+
+    const trigger = ScrollTrigger.create({
+      trigger: '.main-home',
+      start: '50% 80%',
+      toggleActions: 'play none none reset',
+      onEnter: animate,
+      onEnterBack: animate,
+      onLeave: () => {
+        if (splitRef.current) splitRef.current.revert();
+      },
+      onLeaveBack: () => {
+        if (splitRef.current) splitRef.current.revert();
+      },
+    });
+
+    return () => {
+      trigger.kill();
+      if (splitRef.current) splitRef.current.revert();
+    };
+  }, []);
+
   return (
     <>
         <main className="main-home flex">
