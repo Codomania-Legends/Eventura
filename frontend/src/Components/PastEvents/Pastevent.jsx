@@ -23,12 +23,12 @@ function Pastevent() {
           x: '-15em',
           y: '4em',
           rotate: -10,
-          duration: 0.8,
+          duration: 0.6,
           ease: 'linear',
           keyframes: [
             { x: '-5em', y: '1em', rotate: -3, duration: 0.2 },
             { x: '-10em', y: '2em', rotate: -6, duration: 0.2 },
-            { x: '-15em', y: '4em', rotate: -10, duration: 0.4 },
+            { x: '-15em', y: '4em', rotate: -10, duration: 0.2 },
           ],
         }
       );
@@ -40,12 +40,12 @@ function Pastevent() {
           x: '15em',
           y: '4em',
           rotate: 10,
-          duration: 0.8,
+          duration: 0.6,
           ease: 'linear',
           keyframes: [
             { x: '5em', y: '1em', rotate: 3, duration: 0.2 },
             { x: '10em', y: '2em', rotate: 6, duration: 0.2 },
-            { x: '15em', y: '4em', rotate: 10, duration: 0.4 },
+            { x: '15em', y: '4em', rotate: 10, duration: 0.2 },
           ],
         }
       );
