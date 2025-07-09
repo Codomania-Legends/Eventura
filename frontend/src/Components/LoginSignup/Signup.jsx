@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import {useNavigate} from "react-router"
 import "./LoginSignup.css"
 
 function Signup() {
@@ -7,6 +8,8 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [identity, setIdentity] = useState("");
   const [message, setMessage] = useState("");
+
+  const navigate = useNavigate()
 
   const handleIdentity = (e, value) => {
     e.preventDefault();
@@ -26,6 +29,10 @@ function Signup() {
         identity
       });
       setMessage(res.data.message || "Signup successful!");
+      if(res.data.token){
+        localStorage.setItem("token" , res.data.token )
+        navigate("/login")
+      }
     } catch (err) {
       setMessage(err.response?.data?.error || "Signup failed");
     }
