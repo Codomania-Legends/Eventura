@@ -5,34 +5,6 @@ import DashSideBar from '../DashComponent/DashSideBar'
 import LeftDashForm from './LeftDashForm';
 import RightDashForm from './RightDashForm';
 function DashForm() {
-    const inputs = document.querySelectorAll(".input-box input");
-
-    inputs.forEach((input, index) => {
-        input.addEventListener("input", () => {
-        const val = input.value;
-        if (index === 0 && (val > 31 || val < 1)) input.value = ""; // DD
-        if (index === 1 && (val > 12 || val < 1)) input.value = ""; // MM
-        if (index === 2 && val.length > 4) input.value = val.slice(0, 4); // YYYY
-        });
-    });
-
-    // const amBtn = document.querySelector(".am");
-    // const pmBtn = document.querySelector(".pm");
-
-    // function clearSelection() {
-    //     amBtn.classList.remove("selected");
-    //     pmBtn.classList.remove("selected");
-    // }
-
-    // amBtn.addEventListener("click", () => {
-    //     clearSelection();
-    //     amBtn.classList.add("selected");
-    // });
-
-    // pmBtn.addEventListener("click", () => {
-    //     clearSelection();
-    //     pmBtn.classList.add("selected");
-    // });
   return (
     <>
         <div className="dashbody flex">
