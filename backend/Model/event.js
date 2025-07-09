@@ -18,6 +18,7 @@ const eventSchema = new mongoose.Schema({
   eventOutlines: [{ type: String }],
   registrations: [{ type: String }],
   attendance: [{ type: String }],
+  total_r : {type : Number}
 });
 
 const EVENT = mongoose.model('Event', eventSchema);

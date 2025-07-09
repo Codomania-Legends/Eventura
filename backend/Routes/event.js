@@ -6,10 +6,10 @@ router.post('/', createEvent);
 
 router.get('/', getAllEvents);
 
-router.get('/:id', getEventById);
+router.get('/:hostName', getEventById);
 
-router.put('/:id', updateEvent);
+router.put('/:eventName', updateEvent);
 
-router.delete('/:id', deleteEvent);
+router.delete('/:eventName', deleteEvent);
 
 module.exports = { eventRouter: router };
