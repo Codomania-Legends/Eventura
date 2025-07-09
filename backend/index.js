@@ -5,8 +5,14 @@ const { userRouter } = require("./Routes/user")
 const { eventRouter } = require("./Routes/event")
 const PORT = process.env.PORT
 const app = express()
+const cors = require("cors")
+
+app.use(cors({
+    origin: "http://localhost:5173"
+}))
 
 app.use( express.urlencoded({extended : false}) )
+app.use( express.json() )
 
 const url = process.env.MONGODB_URL.concat( process.env.DB_NAME )
 connectMongoDB(url)
