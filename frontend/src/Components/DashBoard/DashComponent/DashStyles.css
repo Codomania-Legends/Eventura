@@ -77,6 +77,9 @@ img.EventLogo {
     font-size: small;
     color: #001329;
 }
+.liked-dash{
+    cursor: pointer;
+}
 .welcome-dash{
     flex-direction: column;
 }
@@ -100,20 +103,3 @@ img.EventLogo {
     margin-left: 0.5em;
 }
 
-.likedDiv{
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    height: 0;
-}
-
-.likedActive{
-    height: 50%;
-    background-color: #001329;
-    color: white;
-    opacity: 1;
-}
-.likedUnActive{
-    height: 0;
-    opacity: 0;
-}

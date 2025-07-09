@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import Liked from './Liked'
-
+import LikedEvents from '../LikedEvents/LikedEvents'
+import "../LikedEvents/LikedEvents.css"
 function DashNav({ name }) {
     const [likedActive , setLikedActive] = useState(false) 
     return (
@@ -30,7 +30,7 @@ function DashNav({ name }) {
                     <b>{name ?? "Anshul"}</b>
                 </span>
             </div>
-            <Liked class__={likedActive ? "likedActive" : "likedUnActive"} />
+            <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} />
         </nav>
     )
 }
