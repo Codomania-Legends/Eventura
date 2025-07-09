@@ -1,0 +1,136 @@
+.content-manageEvent {
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+.upperSection-manage {
+    height: 45%;
+    width: 100%;
+}
+
+.chartGraph-manage {
+    height: 100%;
+    width: 40%;
+}
+.chartContainer{
+    height: 80%;
+    aspect-ratio: 1/1;
+    background-color: #98A1BC;
+    border-radius: 2em;
+}
+.chartInfo-manage {
+    font-size: x-large;
+    margin-left: 1em;
+}
+.circle-manage-chart {
+    aspect-ratio: 1 / 1;
+    height: 2em;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
+    border-radius: 50%;
+    margin-top: 1em;
+    background: #fff2f2;
+}
+
+.eventUpdate-manage.flex {
+    width: 60%;
+    height: 100%;
+}
+.img-manage{
+    height: 80%;
+}
+.manageEventDetails-manage {
+    height: 100%;
+    margin-left: 1em;
+    width: auto;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+h1.heading-manage {
+    font-size: xx-large;
+    font-weight: 900;
+}
+.extraInfo-manage.flex {
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+    height: 50%;
+}
+.updateNewValue{
+    position: absolute;
+    bottom: 0;
+    font-size: small;
+    display: none;
+}
+
+.valueToUpdate{
+    margin-left: 1em;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.2em;
+}
+
+.lowerSection-manage {
+    height: 55%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.container-manageSectionGrid{
+    height: 100%;
+    width: 100%;
+    display: flex;justify-content: center;align-items: center;
+}
+.attendence-manage-container.flex
+,.daysLeft-container
+,.otherUpdatesDiv
+,.certificateDiv
+,.feedbackAndRating-manage
+,.otherUpdatesDiv  {
+    flex-direction: column;
+    width: 50%;
+    align-items: start;
+}
+
+.downSection-manage-attendence {
+    justify-content: space-between;
+    font-size: large;
+    width: 90%;
+}
+.status-score-manage {
+    font-size: small;
+    padding: 0.1em 1em;
+    background: #14AA00;
+    border-radius: 2em;
+}
+.attendenceTextSpan-maage {
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+h1.spanDaysLeft {
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+button.updateButton-manage {
+    background: #001329;
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 0.5em;
+}
+
+.otherupdates-manage{
+    font-weight: bold;
+    margin-bottom: 0.2em;
+}
+.feedback-manage,.ratings-manage{
+    width: 70%;
+    font-weight: bold;
+}
+.feedback-manage{ text-align: left; }
+.ratings-manage{ text-align: right; }
+canvas {
+    padding: 1em;
+}
