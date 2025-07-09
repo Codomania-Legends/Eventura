@@ -13,11 +13,6 @@
     z-index: 0;
     box-shadow: -10px 12px 10px rgb(120 120 120 / 25%);
 }
-.div-box1:hover{
-    z-index: 2;
-    transform: scale(1.05);
-    box-shadow: 10px 10px 10px rgb(0 0 1 / 25%);
-}
 .div-box2 {
     height: 50%;
     width: 35%;
@@ -29,11 +24,6 @@
     z-index: 0;
     box-shadow: 10px 12px 10px rgb(120 120 120 / 25%);
 }
-.div-box2:hover{
-    z-index: 2;
-    transform: scale(1.05);
-    box-shadow: -10px 10px 10px rgb(0 0 1 / 25%);
-}
 .div-box3 {
     height: 50%;
     width: 35%;
@@ -43,6 +33,10 @@
     transition: all 1s ease;
     z-index: 1;
     box-shadow: 10px 10px 10px rgb(0 0 1 / 25%), -10px 10px 10px rgb(0 0 1 / 25%);
+}
+
+.div-box1:hover , .div-box2:hover , .div-box3:hover{
+    cursor: pointer;
 }
 
 @keyframes Animate-box1 {
@@ -90,9 +84,10 @@
     height: 15%;
     width: 100%;
 }
-.event-info-detail.flex {
-    height: 85%;
+.event-info-detail.flex , .work-info-detail {
+    height: 50%;
     width: 90%;
+    text-align: center;
 }
 
 
@@ -123,7 +118,7 @@
     height: 15%;
     width: 100%;
 }
-.work-info-detail.flex {
+/* .work-info-detail.flex {
     height: 85%;
-    width: 90%;
-}
+    width: 90%; */
+/* } */

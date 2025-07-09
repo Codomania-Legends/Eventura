@@ -55,9 +55,25 @@ button.know-more-btn {
     background-color: #182F5B;
     font-size: large;
     transition: 0.5s;
+    cursor: pointer;
+    box-shadow: 2px 2px 1px rgb(255 255 255 / 2%);
 }
 .know-more-btn:hover{
-    box-shadow: 4px 4px 4px rgb(255 255 255 / 25%);
-    border-radius: 5em;
-    transition: 1s;
+    transition: 0.5s;
+    box-shadow: 0 0px 15px rgba(255 , 255 , 255 , 100%);
+    background-color: white;
+    color: #182F5B;
+}
+
+.rotateMe {
+    font-size: x-small;
+    transition: transform 0.5s;
+    /* height: 10%; */
+    margin-left: 1em;
+}
+
+.know-more-btn:hover > .rotateMe{
+    transform: rotate(180deg);
+    transition: transform 0.5s;
+    /* height: 30%; */
 }

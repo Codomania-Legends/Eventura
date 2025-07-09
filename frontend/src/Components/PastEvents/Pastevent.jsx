@@ -23,14 +23,8 @@ function Pastevent() {
           x: '-15em',
           y: '4em',
           rotate: -10,
-          duration: 0.51,
+          duration: 0.2,
           ease: 'linear',
-          keyframes: [
-            { x: 0, y: 0, rotate: 0, duration: 0.17 },
-            { x: '-5em', y: '1em', rotate: -3, duration: 0.17 },
-            { x: '-10em', y: '2em', rotate: -6, duration: 0.17 },
-            { x: '-15em', y: '4em', rotate: -10, duration: 0.17 },
-          ],
         }
       );
     };
@@ -41,14 +35,8 @@ function Pastevent() {
           x: '15em',
           y: '4em',
           rotate: 10,
-          duration: 0.51,
+          duration: 0.2,
           ease: 'linear',
-          keyframes: [
-            { x: 0, y: 0, rotate: 0, duration: 0.17 },
-            { x: '5em', y: '1em', rotate: 3, duration: 0.17 },
-            { x: '10em', y: '2em', rotate: 6, duration: 0.17 },
-            { x: '15em', y: '4em', rotate: 10, duration: 0.17 },
-          ],
         }
       );
     };
@@ -71,6 +59,20 @@ function Pastevent() {
       onLeave: () => gsap.set(box2Ref.current, { x: 0, y: 0, rotate: 0 }),
       onLeaveBack: () => gsap.set(box2Ref.current, { x: 0, y: 0, rotate: 0 }),
     });
+    const handleHover = (selector, target) => {
+      const el = document.querySelector(selector);
+      if (!el) return;
+      el.addEventListener("mouseover", () => {
+      gsap.to(target, { scale: 1.1, zIndex: 2, duration: 0.05 , ease:"power2.inOut" });
+      });
+      el.addEventListener("mouseout", () => {
+      gsap.to(target, { scale: 1, zIndex: 0, duration: 0.05 , ease:"power2.inOut" });
+      });
+    };
+
+    handleHover(".div-box1", box1Ref.current);
+    handleHover(".div-box2", box2Ref.current);
+    handleHover(".div-box3", document.querySelector(".div-box3"));
   }, []);
 
   return (

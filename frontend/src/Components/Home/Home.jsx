@@ -69,8 +69,11 @@ function Home() {
                 </div>
               </div>
               <div className="know-more flex">
-                <button className="know-more-btn">
-                  <a href="#pastpage">Know More <i className='fa-solid fa-chevron-down'></i></a>
+                <button onClick={() => {
+                    document.querySelector("#pastpage").scrollIntoView({behavior : "smooth"})
+                  } } className="know-more-btn flex">
+                  <span>Know More </span>
+                  <i className='fa-solid fa-chevron-down rotateMe'></i>
                 </button>
               </div>
             </div>
