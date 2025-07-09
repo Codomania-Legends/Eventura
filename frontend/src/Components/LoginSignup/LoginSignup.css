@@ -1,18 +1,19 @@
 .main-sign, .main-login{
-    
     margin: 0;
     padding: 0;
     height: 100vh;
     width: 100%;
-    background-image: url("/loginBack.png");
     background-size: cover;
     justify-content: end;
+    background-color: transparent;
 }
+body{background-color: #FFFDF8;}
 section.signup-section.flex, .login-section.flex {
     height: 85%;
     width: 35%;
     color: white;
     flex-direction: column;
+    margin-right: 5%;
 }
 section.sub-head-sec {
     height: 20%;
@@ -37,15 +38,23 @@ section.sub-detail-signup, .sub-detail-login {
     width: 100%;
     border-radius: 3em;
     padding-left: 1em;
+    background: #fffdf8;
+    transition: 0.5s;
 }
+
+.signusername:focus{ box-shadow: 0 0 10px white; }
+.loginpassword:focus{ box-shadow: 0 0 10px white; }
+.signusername:focus{ box-shadow: 0 0 10px white; }
+.signpassword:focus{ box-shadow: 0 0 10px white; }
+
 .identification.flex {
     height: 20%;
     width: 60%;
 }
 .student, .admin, .profesor {
-    height: 50%;
-    width: 25%;
     border-radius: 2em;
+    background: #fffdf8;
+    padding: 0.5em 1em;
 }
 .identification.flex {
     height: 20%;
@@ -62,4 +71,34 @@ section.sub-detail-signup, .sub-detail-login {
     border-radius: 2em;
     color: white;
     background-color: #0B384D;
+}
+img.img-login-back {
+    height: 100vh;
+    z-index: -1;
+    position: absolute;
+    width: 75%;
+}
+img.man-image-login {
+    position: absolute;
+    height: 65%;
+    left: 15%;
+}
+img.leaf-image-login {
+    position: absolute;
+    height: 75%;
+    left: 3%;
+}
+form.sub-detail-signup.flex {
+    flex-direction: column;
+    height: 50%;
+    width: 100%;
+}
+.selected{
+    background-color: #000;
+    color: white;
+    box-shadow: 0 0 10px white;
+}
+.signup-message{
+    position: absolute;
+    top: 5%;
 }

@@ -1,35 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Liked from './Liked'
 
 function DashNav({ name }) {
-  return (
-    <nav className='navbar-dash flex'>
-        <div className="logo-dash flex">
-            <img src="/black-logo.png" className='EventLogo' alt="EventLogo" />
-        </div>
-        <div className="blog-dash flex">
-            <i class="fa-solid fa-blog"></i>
-            <span className='marginNavbar-dash'>Blogs</span>
-        </div>
-        <div className="search-dash flex">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input className='searchInputEvent' type="text" placeholder='Search any Event' />
-        </div>
-        <div className="saved-dash flex">
-            <i class="fa-solid fa-bookmark"></i>
-            <span className='marginNavbar-dash'>Saved</span>
-        </div>
-        <div className="liked-dash flex">
-            <i class="fa-solid fa-heart"></i>
-            <span className='marginNavbar-dash'>Liked</span>
-        </div>
-        <div className="welcome-dash flex">
-            <span style={{"textAlign" : "left","width":"100%"}}>Welcome,</span>
-            <span style={{"textAlign" : "right","width":"100%"}}>
-                <b>{name ?? "Anshul"}</b>
-            </span>
-        </div>
-    </nav>
-  )
+    const [likedActive , setLikedActive] = useState(false) 
+    return (
+        <nav className='navbar-dash flex'>
+            <div className="logo-dash flex">
+                <img src="/black-logo.png" className='EventLogo' alt="EventLogo" />
+            </div>
+            <div className="blog-dash flex">
+                <i class="fa-solid fa-blog"></i>
+                <span className='marginNavbar-dash'>Blogs</span>
+            </div>
+            <div className="search-dash flex">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input className='searchInputEvent' type="text" placeholder='Search any Event' />
+            </div>
+            <div className="saved-dash flex">
+                <i class="fa-solid fa-bookmark"></i>
+                <span className='marginNavbar-dash'>Saved</span>
+            </div>
+            <div onClick={() => setLikedActive( !likedActive )} className="liked-dash flex">
+                <i class="fa-solid fa-heart"></i>
+                <span className='marginNavbar-dash'>Liked</span>
+            </div>
+            <div className="welcome-dash flex">
+                <span style={{"textAlign" : "left","width":"100%"}}>Welcome,</span>
+                <span style={{"textAlign" : "right","width":"100%"}}>
+                    <b>{name ?? "Anshul"}</b>
+                </span>
+            </div>
+            <Liked class__={likedActive ? "likedActive" : "likedUnActive"} />
+        </nav>
+    )
 }
 
 export default DashNav

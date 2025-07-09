@@ -6,7 +6,6 @@ import DashNav from '../DashComponent/DashNav'
 
 function ManageEvent() {
     const chartRef = useRef(null);
-
     useEffect(() => {
         const ctx = chartRef.current.getContext('2d'); 
         const chartInstance = new Chart(ctx, {
@@ -44,6 +43,7 @@ function ManageEvent() {
             chartInstance.destroy(); 
         };
     }, []);
+
   return (
     <div className="dashbody flex">
         <section className="sidebar-dash flex">

@@ -4,6 +4,9 @@ function Login() {
   return (
     <>
         <div className="main-login flex">
+          <img src="/login-Blue.png" className='img-login-back' alt="" srcset="" />
+          <img src="/man.png" className='man-image-login'  alt="" srcset="" />
+          <img src="/leaf.png" className='leaf-image-login' alt="" />
             <section className="login-section flex">
               <section className="sub-head-sec flex">
                 <h1>Login</h1>
