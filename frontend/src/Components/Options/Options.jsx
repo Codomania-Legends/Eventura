@@ -21,8 +21,8 @@ function Options() {
       transformOrigin: '50% 50% -160px',
       opacity: 0,
       duration: 0.5,
-      // ease: 'power3',
-      // stagger: 0.25,
+      ease: 'power3',
+      stagger: 0.25,
       scrollTrigger: {
         trigger: ".third-page-options",
         start: "top 80%",
@@ -30,14 +30,14 @@ function Options() {
       }
     });
 
-    gsap.set([
-      '.btn1',
-      '.btn2',
-      '.btn3',
-      '.btn4',
-      '.btn5',
-      '.button',
-    ], { x: 0 , overflow : "hidden" });
+    // gsap.set([
+    //   '.btn1',
+    //   '.btn2',
+    //   '.btn3',
+    //   '.btn4',
+    //   '.btn5',
+      
+    // ], { x: 0 , overflow : "hidden" });
     
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -49,8 +49,8 @@ function Options() {
 
     tl.to('.button', {
       x: -250,
-      duration: 0.005,
-      // ease: 'power3.inOut',
+      duration: 0.5,
+      ease: 'power3.inOut',
     });
     tl.to([
       '.btn1',
@@ -64,7 +64,7 @@ function Options() {
         return values[i];
       },
       duration: 0.5,
-      ease: 'power5.inOut',
+      ease: 'bounce.out',
       stagger: 0.1,
     });
   }, []);
