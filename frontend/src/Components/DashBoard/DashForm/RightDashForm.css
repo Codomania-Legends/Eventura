@@ -1,0 +1,90 @@
+.limited-seats-section {
+    color: #0b1221;
+    flex-direction: column;
+    align-items: start;
+    width: 90%;
+}
+.limited-seats.flex {
+    width: 80%;
+    justify-content: space-between;
+}
+.custom-dropdown {
+  background-color: #98a2c7;
+  border: none;
+  border-radius: 0.75em;
+  color: white;
+  padding: 0.4em 1em;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.custom-dropdown:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+.form-event-volunteer-name, .form-event-special-mem-name, .form-event-chief-name{
+    height: 22%;
+    width: 90%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+.formeventvolunteer, .formeventchief, .formeventspecial{
+    background-color: #98A1BC;
+    height: 70%;
+    width: 85%;
+    border-radius: 0.8em;
+    padding-left: 1em;
+}
+.formeventvolunteer, .formeventchief, .formeventspecial{
+    height: 100%;
+    padding-top: 1em;
+    border: none !important;
+    outline: none;
+    box-shadow: none;
+    resize: none;
+
+}
+.formeventvolunteer::placeholder, .formeventspecial::placeholder, .formeventchief::placeholder{
+    color: white;
+}
+.form-pic-upload.flex {
+    height: 15%;
+    width: 90%;
+    flex-direction: column;
+    align-items: start;
+}
+.upload-wrapper {
+    height: 75%;
+    width: 100%;
+    justify-content: start;
+}
+
+.upload-button {
+    height: 75%;
+    width: 45%;
+    background-color: #98a2c7;
+    color: white;
+    /* padding: 0.6em 2em; */
+    border-radius: 0.7em;
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    justify-content: space-around;
+}
+
+.upload-button:hover {
+  background-color: #8692b5;
+}
+
+.arrow {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.hidden-file {
+  display: none;
+}
