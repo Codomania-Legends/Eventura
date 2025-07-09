@@ -3,6 +3,7 @@ const { CheckForDuplicateEVentName } = require('../Services/event');
 
 const createEvent = async (req, res) => {
   try {
+    console.log("Got " , req.body)
     const { eventName } = req.body
     const duplicateCheck = await CheckForDuplicateEVentName({eventName})
     if( !duplicateCheck ) throw new Error( "Event Name already Taken" )
@@ -25,7 +26,9 @@ const getAllEvents = async (req, res) => {
 
 const getEventById = async (req, res) => {
   try {
-    const event = await EVENT.findById(req.params.id);
+    // Find by eventName instead of _id
+    const {hostName} = req.params
+    const event = await EVENT.findOne({ hostName });
     if (!event) return res.status(404).json({ message: 'EVENT not found' });
     res.status(200).json(event);
   } catch (error) {
@@ -35,7 +38,7 @@ const getEventById = async (req, res) => {
 
 const updateEvent = async (req, res) => {
   try {
-    const event = await EVENT.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const event = await EVENT.findByIdAndUpdate(req.params.eventName, req.body, { new: true });
     if (!event) return res.status(404).json({ message: 'EVENT not found' });
     res.status(200).json({ message: 'EVENT updated', event });
   } catch (error) {
@@ -45,7 +48,7 @@ const updateEvent = async (req, res) => {
 
 const deleteEvent = async (req, res) => {
   try {
-    const event = await EVENT.findByIdAndDelete(req.params.id);
+    const event = await EVENT.findByIdAndDelete(req.params.eventName);
     if (!event) return res.status(404).json({ message: 'EVENT not found' });
     res.status(200).json({ message: 'EVENT deleted' });
   } catch (error) {

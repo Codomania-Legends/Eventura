@@ -9,12 +9,16 @@ const eventSchema = new mongoose.Schema({
   venue: { type: String, required: true },
   duration: { type: String },
   limitedSeats: { type: Boolean, default: false },
+  hostName : { type : String },
+  image : {type : String},
+  impressions : { type : Number },
   volunteers: [{ type: String }], 
   chiefGuest: { type: String },
   specialMembers: [{ type: String }],
   eventOutlines: [{ type: String }],
   registrations: [{ type: String }],
   attendance: [{ type: String }],
+  total_r : {type : Number}
 });
 
 const EVENT = mongoose.model('Event', eventSchema);

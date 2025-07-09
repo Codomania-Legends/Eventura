@@ -1,53 +1,83 @@
 # 🚀 Eventura – Event Management System  
-A project built during the HackOrbit Hackathon
+Built with 💻 during the HackOrbit Hackathon
 
-*Eventura* is a dynamic event management platform designed to streamline event planning, participation, and collaboration. Whether you're hosting a tech summit or attending a student meetup, Eventura brings all essential tools under one roof — simple, elegant, and efficient.
+*Eventura* is a modern web-based event management platform designed to help users *host, **explore, and **interact with events* easily. Whether you're an event creator or an attendee, Eventura offers all tools to manage everything in one place.
 
 ---
 
-## 🌟 Features
-- 🔖 Smooth and modern UI with responsive design
-- 🧭 Easy navigation across multiple event categories
-- 📝 User authentication for login and registration
-- 🗓 Event listing with interactive elements
-- ⚙ Reusable components and scalable structure
-- 💫 Scroll-triggered animations using GSAP
-- 📩 Query/feedback input system
+## 🌟 Key Features
+- ✅ Clean and modern user interface
+- ✅ Fully responsive layout
+- ✅ Smooth scroll-based animations using GSAP
+- ✅ User authentication system (Login & Signup)
+- ✅ Event dashboard to host and manage your events
+- ✅ MongoDB-integrated backend with Node.js and Express
+- ✅ Like/save feature (in progress)
+- ✅ Query form for feedback or support
 
 ---
 
 ## ✅ Development Checkpoints
 
-| # | Description |
-|---|-------------|
-| ✅ *1st Commit* | Initialized the React app and installed all necessary modules |
-| ✅ *2nd Commit* | Created a responsive navbar and started designing the Home page |
-| ✅ *3rd Commit* | Completed the full Home page with layout and styling |
-| ✅ *4th Commit* | Added a new "Options" page to explore event features |
-| ✅ *5th Commit* | Implemented GSAP-based animations and designed the footer section |
-| ✅ *6th Commit* | Built Login and Signup pages with input validation UI |
+| Commit # | Description |
+|----------|-------------|
+| *1st*  | Created the React app and installed all necessary modules |
+| *2nd*  | Designed and implemented the navbar; started building the Home page |
+| *3rd*  | Completed the Home page with layout, design, and responsiveness |
+| *4th*  | Added a new "Options" page to showcase event categories |
+| *5th*  | Integrated GSAP animations and created the footer structure |
+| *6th*  | Built Login and Signup pages with input fields and validation |
+| *7th*  | Enhanced and finalized the Footer page with social icons and contact links |
+| *8th*  | Developed the full backend using Node.js and MongoDB (API routes, models, DB connection) |
+
+---
+
+### 📌 Other Notable Progress
+- 🧭 Created *User Dashboard*
+- 🗂 Built *All Events Dashboard*
+- 📝 Created *Host Event Form* for organizers
+- 🛠 Built *My Events* management system
+- ❤ Working on the *"Like" feature* for event bookmarking
 
 ---
 
 ## 💻 Tech Stack
-- *Frontend:* React.js, Tailwind CSS / Custom CSS
-- *Animations:* GSAP + ScrollTrigger
-- *Icons:* Font Awesome
-- *Backend* NodeJS, MongoDB, Express
-- *Security* dotenv
-- *Version Control:* Git & GitHub
 
----
-
-## 📌 Note
-This project was built as part of a 36-hour hackathon and is currently under active development. Expect rapid changes and improvements in the coming days!
+| Area         | Technology         |
+|--------------|--------------------|
+| *Frontend* | React.js, CSS Modules, GSAP |
+| *Backend*  | Node.js, Express.js |
+| *Database* | MongoDB with Mongoose |
+| *Styling*  | Tailwind CSS / Custom CSS |
+| *Icons*    | Font Awesome |
+| *Versioning* | Git & GitHub |
 
 ---
 
 ## 👥 Team Codomania-Legends
-- Anshul Vishwakarma [Team Leader]
+-Anshul Vishwakarma [Team Leader] 
 - Vidhi Agrawal  
+
+
+---
+
+## 🛠 In Progress
+
+- ❤ Like & Save Event Feature  
+- 🧾 E-Certificate Generation (Planned)  
+- 🔔 Notifications for event updates  
+- 📊 events details will be available without network too dashboard (Planned)
+
 ---
 
 ## 📷 Screenshots  
-will add later
+we will add it later
+
+---
+---
+
+## 📌 Note
+
+> This project is being actively developed as part of a hackathon. Some features are under construction 🚧.
+
+---

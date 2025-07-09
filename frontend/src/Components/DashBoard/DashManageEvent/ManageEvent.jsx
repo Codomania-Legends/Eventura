@@ -1,29 +1,46 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import "./M-Estyle.css"
 import Chart from "chart.js/auto"
 import DashSideBar from '../DashComponent/DashSideBar'
 import DashNav from '../DashComponent/DashNav'
+import axios from 'axios'
 
 function ManageEvent() {
     const chartRef = useRef(null);
+    const [ myEvent , setMyEvent ] = useState(null)
+    useEffect( () => {
+        const username = localStorage.getItem("username")
+        async function getEventByName(){
+            const res = await axios.get( `http://localhost:5000/event/${username}` , {
+                headers : {
+                    Authorization : `BEARER ${localStorage.getItem("token")}`
+                }
+            } )
+            if( !res.data ) alert("No Events of your, to access this Feature, Host an EVENT")            
+            setMyEvent(res.data)
+        }
+        getEventByName()
+        console.log(myEvent)
+    } , [] )
     useEffect(() => {
-        const ctx = chartRef.current.getContext('2d'); 
+        if (!myEvent) return; // Prevent running if no event data
+        const ctx = chartRef.current.getContext('2d');
         const chartInstance = new Chart(ctx, {
         type: 'doughnut',
         data: {
             labels: ['Registrations', 'Impressions'],
             datasets: [{
                 label: '',
-                data: [40, 45],
+                data: [40 , 45],
                 backgroundColor: ['#001329', '#FFF2F2'],
                 hoverOffset: 5,
-                borderWidth: 0 // ✅ Removes border around segments
+                borderWidth: 0
             }]
         },
         options: {
             plugins: {
             legend: {
-                position: 'bottom', // ✅ Move legend to the end (right side)
+                position: 'bottom',
                 labels: {
                     color: "black",
                     usePointStyle: true,
@@ -35,15 +52,14 @@ function ManageEvent() {
                 enabled: true
             }
             },
-            cutout: '65%', // optional: controls the doughnut hole size
+            cutout: '65%',
         }
         });
 
         return () => {
             chartInstance.destroy(); 
         };
-    }, []);
-
+    }, [myEvent]);
   return (
     <div className="dashbody flex">
         <section className="sidebar-dash flex">
@@ -53,7 +69,7 @@ function ManageEvent() {
             <div className="navbar-dash-body">
                 <DashNav />
             </div>
-            <div className="content-manageEvent flex">
+            {myEvent && <div className="content-manageEvent flex">
                 <div className="upperSection-manage flex">
                     <div className="chartGraph-manage flex">
                         <div className="chartContainer">
@@ -63,25 +79,29 @@ function ManageEvent() {
                             <div><b>Total</b></div>
                             <div><i>Registrations</i></div>
                             <div className="circle-manage-chart flex">
-                                45
+                                40
                             </div>
                         </div>
                     </div>
                     <div className="eventUpdate-manage flex">
+<<<<<<< HEAD
                         <img className='img-manage' src="/workshop2.jpg" alt="Event Image"/>
+=======
+                        <img className='img-manage' src={`/${myEvent.image}`} alt="Event Image"/>
+>>>>>>> 3f8a2285c4aaa4c0e4cf2f11e756b7bd3d28f51d
                         <div className="manageEventDetails-manage flex">
-                            <h1 className='heading-manage'><i>Eveista</i></h1>
+                            <h1 className='heading-manage'><i>{myEvent.eventName}</i></h1>
                             <span className="description-manage">
-                                An AI powered workshop by Anubhav Bakshi
+                                {myEvent.eventName}
                             </span>
                             <div className="extraInfo-manage flex">
                                 {["For", "By", "Host", "At", "Venue"].map((v, i) => {
                                     const d = [
                                         "Bachelor of Technology",
-                                        "Anshul Vishwakarma",
-                                        "Anshul Vishwakarma",
-                                        "9th of February, 8:00 AM",
-                                        "Avirat Hotel"
+                                        `${myEvent.hostName}`,
+                                        `${myEvent.hostName}`,
+                                        `${myEvent.date}, ${myEvent.time}`,
+                                        `${myEvent.venue}`
                                     ];
                                     return (
                                         <div className={`${v}-manage`} key={v}>
@@ -145,7 +165,7 @@ function ManageEvent() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
         </section>
     </div>
   )
