@@ -5,6 +5,7 @@ const { CheckForDuplicateUser } = require('../Services/user');
 
 const SignupReqRes = async (req, res) => {
     try {
+        console.log("Send")
         const { username, password, identity } = req.body;
         const isDuplicate = await CheckForDuplicateUser({ username, password });
         console.log(isDuplicate)
