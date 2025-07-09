@@ -1,11 +1,11 @@
-.likedDiv{
+.savedDiv{
     position: absolute;
     opacity: 0;
     top: 0;
     height: 0;
 }
 
-.likedActive {
+.savedActive {
     height: 65%;
     background-color: #001329;
     color: white;
@@ -15,30 +15,30 @@
     border-radius: 1em;
     z-index: 5;
 }
-.likedUnActive{
+.savedUnActive{
     height: 0;
     opacity: 0;
 }
-.liked-contents.flex {
+.saved-contents.flex {
     height: 100%;
     width: 100%;
     flex-direction: column;
     justify-content: start;
 }
-section.liked-con-heading {
+section.saved-con-heading {
     height: 15%;
     width: 90%;
     font-size: x-large;
     justify-content: start;
     gap: 0.3em;
 }
-span.liki {
+span.savi {
     font-weight: bold;
 }
 span.evei {
     font-style: italic;
 }
-section.liked-events-details {
+section.saved-events-details {
     height: 80%;
     width: 90%;
     display: grid;

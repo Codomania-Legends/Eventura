@@ -6,6 +6,7 @@ import Signup from './Components/LoginSignup/Signup'
 import Login from "./Components/LoginSignup/Login.jsx"
 import DashEvent from "./Components/DashBoard/DashEvent/DashEvent.jsx"
 import DashForm from "./Components/DashBoard/DashForm/DashForm.jsx"
+import ManageEvent from "./Components/DashBoard/DashManageEvent/ManageEvent.jsx"
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/login" element={<Login/>}></Route>
       <Route path="/dashboard/events" element={<DashEvent />}></Route>
       <Route path="/dashboard/eventform" element={<DashForm/>}></Route>
+      <Route path="/dashboard/manage" element={<ManageEvent/>}></Route>
     </Routes>
   </BrowserRouter>
 )

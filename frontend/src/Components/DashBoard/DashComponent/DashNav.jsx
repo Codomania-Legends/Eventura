@@ -1,8 +1,11 @@
 import React, { useState } from 'react'
 import LikedEvents from '../LikedEvents/LikedEvents'
 import "../LikedEvents/LikedEvents.css"
+import "../SavedEvents/SavedEvents.css"
+import SavedEvents from '../SavedEvents/SavedEvents'
 function DashNav({ name }) {
     const [likedActive , setLikedActive] = useState(false) 
+    const [savedActive , setSavedActive] = useState(false) 
     return (
         <nav className='navbar-dash flex'>
             <div className="logo-dash flex">
@@ -16,7 +19,7 @@ function DashNav({ name }) {
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input className='searchInputEvent' type="text" placeholder='Search any Event' />
             </div>
-            <div className="saved-dash flex">
+            <div onClick={() => setSavedActive( !savedActive )} className="saved-dash flex">
                 <i class="fa-solid fa-bookmark"></i>
                 <span className='marginNavbar-dash'>Saved</span>
             </div>
@@ -30,6 +33,7 @@ function DashNav({ name }) {
                     <b>{name ?? "Anshul"}</b>
                 </span>
             </div>
+            <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/>
             <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} />
         </nav>
     )
