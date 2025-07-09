@@ -6,6 +6,7 @@ const { eventRouter } = require("./Routes/event")
 const PORT = process.env.PORT
 const app = express()
 const cors = require("cors")
+const { authenticateToken } = require("./Authentication/auth")
 
 app.use(cors({
     origin: "http://localhost:5173"
@@ -18,6 +19,6 @@ const url = process.env.MONGODB_URL.concat( process.env.DB_NAME )
 connectMongoDB(url)
 
 app.use( "/user" , userRouter)
-app.use( "/event" , eventRouter )
+app.use( "/event" , authenticateToken , eventRouter )
 
 app.listen( PORT , () => console.log(`Server Started at PORT : ${PORT}`) )
