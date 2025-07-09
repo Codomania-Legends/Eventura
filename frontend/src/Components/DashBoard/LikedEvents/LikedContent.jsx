@@ -6,7 +6,7 @@ function LikedContent() {
   const [unActive, setUnActive] = useState(false);
   return (
     <>
-        <div className={`liked-contents flex${unActive ? 'fade-out' : ''}`}>
+        <div className={liked-contents flex${unActive ? ' fade-out' : ''}}>
           <section className="liked-con-heading flex">
             <img onClick={() => setUnActive(true)} className='back-arrow' src={backArrow} alt="" />
             <span className="liki">Liked</span>
@@ -47,4 +47,4 @@ function LikedContent() {
   )
 }
 
-export default LikedContent
+export default LikedContent
