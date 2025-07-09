@@ -1,6 +1,6 @@
 import { useState, React, useRef } from 'react'
 import "./RightDashForm.css"
-function RightDashForm() {
+function RightDashForm({ eventData, onEventChange }) {
   const [isYes, setIsYes] = useState(false);
   const [isNo, setIsNo] = useState(true);
   const [seatCount, setSeatCount] = useState("");
@@ -8,29 +8,37 @@ function RightDashForm() {
   const handleYesChange = () => {
     setIsYes(true);
     setIsNo(false);
+    onEventChange('limitedSeats', true);
   };
   const handleNoChange = () => {
     setIsYes(false);
     setIsNo(true);
     setSeatCount("");
+    onEventChange('limitedSeats', false);
+    onEventChange('seatCount', "");
   };
   const handleSeatCountChange = (e) => {
     setSeatCount(e.target.value);
+    onEventChange('seatCount', e.target.value);
   };
 
-  const fileInput = document.getElementById('fileUpload');
-  const uploadLabel = document.querySelector('.upload-button');
+  const fileInputRef = useRef(null);
+  const [UploadLabel, setUploadLabel] = useState('Upload');
 
-const fileInputRef = useRef(null);
-const [UploadLabel, setUploadLabel] = useState('Upload');
-
-const handleFileChange = (e) => {
+  const handleFileChange = (e) => {
     if (e.target.files.length > 0) {
-        setUploadLabel(e.target.files[0].name);
+      setUploadLabel(e.target.files[0].name);
+      // For now, just store the file name. For actual upload, handle file upload logic.
+      onEventChange('eventOutlineFile', e.target.files[0]);
     } else {
-        setUploadLabel('Upload');
+      setUploadLabel('Upload');
+      onEventChange('eventOutlineFile', null);
     }
-};
+  };
+
+  const handleChange = (field) => (e) => {
+    onEventChange(field, e.target.value);
+  };
 
   return (
     <>
@@ -72,26 +80,26 @@ const handleFileChange = (e) => {
 
       <div className="form-event-volunteer-name flex">
         <span>Event Volunteer's Name</span>
-        <textarea placeholder='Enter Event Volunteers Name....' className="formeventvolunteer"></textarea>
+        <textarea placeholder='Enter Event Volunteers Name....' className="formeventvolunteer" value={eventData.volunteers || ''} onChange={handleChange('volunteers')}></textarea>
       </div>
 
       <div className="form-event-chief-name flex">
         <span>Event Chief Guest's Name</span>
-        <textarea placeholder='Enter Event Cheif Name....' className="formeventchief"></textarea>
+        <textarea placeholder='Enter Event Cheif Name....' className="formeventchief" value={eventData.chiefGuest || ''} onChange={handleChange('chiefGuest')}></textarea>
       </div>
       <div className="form-event-special-mem-name flex">
         <span>Event Special Members's Name</span>
-        <textarea placeholder='Enter Event Special Member Name....' className="formeventspecial"></textarea>
+        <textarea placeholder='Enter Event Special Member Name....' className="formeventspecial" value={eventData.specialMembers || ''} onChange={handleChange('specialMembers')}></textarea>
       </div>
 
       <div className="form-pic-upload flex">
         <span>Event Outlines</span>
         <div className="upload-wrapper flex">
-            <label for="fileUpload" className="upload-button flex">
-                Upload
+            <label htmlFor="fileUpload" className="upload-button flex">
+                {UploadLabel}
                 <span className="arrow">▾</span>
             </label>
-            <input type="file" id="fileUpload" className="hidden-file" />
+            <input type="file" id="fileUpload" className="hidden-file" ref={fileInputRef} onChange={handleFileChange} />
         </div>
       </div>
     </>

@@ -28,7 +28,6 @@ function Login() {
       );
       setMessage(res.data.message || "Login successful!");
       if( res.data.user ) navigate("/dashboard/events")
-      // Optionally, store token: localStorage.setItem('token', res.data.token)
     } catch (err) {
       setMessage(err.response?.data?.error || "Login failed");
     }

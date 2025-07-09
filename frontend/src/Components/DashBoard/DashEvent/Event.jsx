@@ -1,20 +1,20 @@
 import React from 'react'
 
-function Event() {
+function Event({event}) {
   return (
     <div className="eventContainer flex">
         <div className="events-event flex">
             <div className="image-left-event flex">
-                <img className='eventImage-event' src="/workshop.png" alt="Event Image" />
-                <span className='typeOfEvent'>Workshop</span>
+                <img className='eventImage-event' src={`/${event.image}`} alt="Event Image" />
+                <span className='typeOfEvent'>{event.eventType}</span>
             </div>
             <div className="rightEventDescription flex">
                 <div className="description-event">
-                    AI Powered Workshop with Anshul Vishwakarma
+                    {event.description}
                 </div>
                 <div className="extra-info-event flex">
                     <span>Bachelor of Technology</span>
-                    <span>Host: <b className='hostName'>Anshul Vishwakarma</b></span>
+                    <span>Host: <b className='hostName'>{event.hostName}</b></span>
                 </div>
                 <div className="registerSavedLikedCross flex">
                     <button className='RegisterButton'>Register</button>

@@ -34,6 +34,10 @@
     grid-template-columns: 1fr 1fr;
     box-sizing: border-box;
     padding-bottom: 2%;
+    overflow: scroll;
+    scrollbar-width: none;
+    grid-gap: 2em;
+    margin-top: 2em;
 }
 .events-event.flex {
     width: 80%;
@@ -120,7 +124,6 @@ button.RegisterButton {
 .option-option:hover{
     transition: 0.5s;
     box-shadow: 4px 4px 4px rgb(0 0 0 /25%);
-    border: 0px solid #98A1BC;
 }
 .image-option-filter{
     height: 50%;
