@@ -30,7 +30,7 @@ function DashNav({ name }) {
             <div className="welcome-dash flex">
                 <span style={{"textAlign" : "left","width":"100%"}}>Welcome,</span>
                 <span style={{"textAlign" : "right","width":"100%"}}>
-                    <b>{name ?? "Anshul"}</b>
+                    <b>{localStorage.getItem("username")}</b>
                 </span>
             </div>
             <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/>

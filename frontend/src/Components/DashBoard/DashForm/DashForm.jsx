@@ -55,7 +55,9 @@ function DashForm() {
         chiefGuest,
         specialMembers: specialMembersArr,
         hostName : "Anshul",
-        image : "workshop.png"
+        image : "workshop.png",
+        impressions : 150,
+        total_r : 100
       };
       console.log(payload);
       await axios.post('http://localhost:5000/event', payload, {

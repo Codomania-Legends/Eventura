@@ -34,6 +34,7 @@ function DashSideBar({active}) {
               <i class="fa-solid fa-bars-progress"></i>
               <span className='addMargin-sidebar'>Manage your Event</span>
             </div>
+            {/* Upcomming Feature */}
             <div onClick={() => Navigate("/dashboard/reminder")} className="home-sidebar sidebar-content flex">
               <i class="fa-solid fa-bell"></i>
               <span className='addMargin-sidebar'>Reminders</span>
