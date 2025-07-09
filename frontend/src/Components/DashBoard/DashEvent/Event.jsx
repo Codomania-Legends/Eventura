@@ -5,7 +5,7 @@ function Event() {
     <div className="eventContainer flex">
         <div className="events-event flex">
             <div className="image-left-event flex">
-                <img className='eventImage-event' src="/workshop.png" alt="Event Image" />
+                <img className='eventImage-event' src="/workshop2.jpg" alt="Event Image" />
                 <span className='typeOfEvent'>Workshop</span>
             </div>
             <div className="rightEventDescription flex">

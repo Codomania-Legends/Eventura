@@ -1,13 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react';
 import "./LikedEvents.css"
 import backArrow from "/backarrow.png"
 import workshop2 from "/workshop2.jpg"
 function LikedContent() {
+  const [unActive, setUnActive] = useState(false);
   return (
     <>
-        <div className="liked-contents flex">
+        <div className={`liked-contents flex${unActive ? 'fade-out' : ''}`}>
           <section className="liked-con-heading flex">
-            <img className='back-arrow' src={backArrow} alt="" />
+            <img onClick={() => setUnActive(true)} className='back-arrow' src={backArrow} alt="" />
             <span className="liki">Liked</span>
             <span className="evei">Events</span>
           </section>

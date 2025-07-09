@@ -7,7 +7,6 @@
 
 .savedActive {
     height: 65%;
-    background-color: #001329;
     color: white;
     opacity: 1;
     width: 84%;
@@ -20,6 +19,8 @@
     opacity: 0;
 }
 .saved-contents.flex {
+    background-color: #001329;
+    border-radius: 1em;
     height: 100%;
     width: 100%;
     flex-direction: column;
@@ -108,4 +109,8 @@ button.registered-there {
     height: 30%;
     width: 90%;
     justify-content: space-between;
+}
+.fade-out, .fade-out * {
+  opacity: 0 !important;
+  transition: opacity 0.5s ease;
 }

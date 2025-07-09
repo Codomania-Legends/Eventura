@@ -1,30 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './SavedEvents.css';
 import backArrow from '/backarrow.png';
 
-import workshop2 from '../../assets/workshop2.jpg';
-import eve from '../../assets/eve.jpg';
-import eveista from '../../assets/eveista.jpg';
-import workshop from '../../assets/workshop.jpg';
-import workshop1 from '../../assets/workshop1.jpg';
+import workshop2 from '/workshop2.jpg';
 
 import { Data } from '../../Data/Data.jsx';
 
-// Map filenames to image imports
-const imageMap = {
-  'workshop2.jpg': workshop2,
-  'eve.jpg': eve,
-  'eveista.jpg': eveista,
-  'workshop.jpg': workshop,
-  'workshop1.jpg': workshop1
-};
+
 
 function SavedContent() {
+  const [unActive, setUnActive] = useState(false);
+
   return (
-    <div className="saved-contents flex">
+    <div className={`saved-contents flex${unActive ? ' fade-out' : ''}`}>
       {/* Heading */}
       <section className="saved-con-heading flex">
-        <img className="back-arrow" src={backArrow} alt="Back" />
+        <img
+          onClick={() => setUnActive(!unActive)}
+          className="back-arrow"
+          src={backArrow}
+          alt="Back"
+        />
         <span className="savi">Saved</span>
         <span className="evei">Events</span>
       </section>
@@ -35,10 +31,9 @@ function SavedContent() {
           <div className="detailed-content flex" key={event.id}>
             <div className="content-ka-baksa flex">
               <img
-                src={imageMap[event.image] || eve}
+                src={workshop2}
                 alt={event.eventName}
                 className="detailed-ka-img"
-                onError={(e) => { e.target.onerror = null; e.target.src = eve; }}
               />
 
               <section className="heading-side flex">

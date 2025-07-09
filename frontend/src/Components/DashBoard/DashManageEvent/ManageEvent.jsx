@@ -68,7 +68,7 @@ function ManageEvent() {
                         </div>
                     </div>
                     <div className="eventUpdate-manage flex">
-                        <img className='img-manage' src="/workshop.png" alt="Event Image"/>
+                        <img className='img-manage' src="/workshop2.jpg" alt="Event Image"/>
                         <div className="manageEventDetails-manage flex">
                             <h1 className='heading-manage'><i>Eveista</i></h1>
                             <span className="description-manage">
