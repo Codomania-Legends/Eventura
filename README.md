@@ -1,83 +1,84 @@
 # 🚀 Eventura – Event Management System  
-Built with 💻 during the HackOrbit Hackathon
+**Built with 💻 during the HackOrbit Hackathon**
 
-*Eventura* is a modern web-based event management platform designed to help users *host, **explore, and **interact with events* easily. Whether you're an event creator or an attendee, Eventura offers all tools to manage everything in one place.
+Eventura is a modern web-based platform to **host**, **explore**, and **interact with events**. It’s built for both event creators and attendees — all tools in one place.
+
+---
+
+*___Start the Backend and Frontend parts Together___*
 
 ---
 
 ## 🌟 Key Features
-- ✅ Clean and modern user interface
-- ✅ Fully responsive layout
-- ✅ Smooth scroll-based animations using GSAP
-- ✅ User authentication system (Login & Signup)
-- ✅ Event dashboard to host and manage your events
-- ✅ MongoDB-integrated backend with Node.js and Express
-- ✅ Like/save feature (in progress)
-- ✅ Query form for feedback or support
+
+- ✅ **Clean and modern UI**
+- ✅ **Fully responsive design**
+- ✅ **Smooth scroll animations using GSAP**
+- ✅ **User Authentication (Login & Signup)**
+- ✅ **Interactive Event Dashboard**
+- ✅ **MongoDB-powered backend**
+- ✅ **Like/Save feature** (in progress)
+- ✅ **Contact/Query form**
 
 ---
 
-## ✅ Development Checkpoints
+## 🛠 Development Checkpoints
 
-| Commit # | Description |
-|----------|-------------|
-| *1st*  | Created the React app and installed all necessary modules |
-| *2nd*  | Designed and implemented the navbar; started building the Home page |
-| *3rd*  | Completed the Home page with layout, design, and responsiveness |
-| *4th*  | Added a new "Options" page to showcase event categories |
-| *5th*  | Integrated GSAP animations and created the footer structure |
-| *6th*  | Built Login and Signup pages with input fields and validation |
-| *7th*  | Enhanced and finalized the Footer page with social icons and contact links |
-| *8th*  | Developed the full backend using Node.js and MongoDB (API routes, models, DB connection) |
+| Commit | Description                            |
+|--------|----------------------------------------|
+| 1st    | Initialized React app with modules     |
+| 2nd    | Created navbar and started Home        |
+| 3rd    | Finalized responsive Home page         |
+| 4th    | Built event "Options" category page    |
+| 5th    | Added GSAP animations + Footer layout  |
+| 6th    | Login/Signup pages with validation     |
+| 7th    | Finalized Footer (social icons)        |
+| 8th    | Complete backend (Node + MongoDB)      |
 
 ---
 
-### 📌 Other Notable Progress
-- 🧭 Created *User Dashboard*
-- 🗂 Built *All Events Dashboard*
-- 📝 Created *Host Event Form* for organizers
-- 🛠 Built *My Events* management system
-- ❤ Working on the *"Like" feature* for event bookmarking
+## 📌 Additional Features
+
+- 🧭 **User Dashboard**
+- 🗂 **All Events Dashboard**
+- 📝 **Host Event Form**
+- 🛠 **Manage My Events**
+- ❤ **Like/Bookmark events** *(ongoing)*
 
 ---
 
 ## 💻 Tech Stack
 
-| Area         | Technology         |
-|--------------|--------------------|
-| *Frontend* | React.js, CSS Modules, GSAP |
-| *Backend*  | Node.js, Express.js |
-| *Database* | MongoDB with Mongoose |
-| *Styling*  | Tailwind CSS / Custom CSS |
-| *Icons*    | Font Awesome |
-| *Versioning* | Git & GitHub |
+| Area        | Technologies                            |
+|-------------|------------------------------------------|
+| Frontend    | React.js, CSS Modules, GSAP              |
+| Backend     | Node.js, Express.js                      |
+| Database    | MongoDB + Mongoose                       |
+| Styling     | Tailwind CSS / CSS Modules               |
+| Icons       | Font Awesome                             |
+| Versioning  | Git & GitHub                             |
 
 ---
 
-## 👥 Team Codomania-Legends
--Anshul Vishwakarma [Team Leader] 
-- Vidhi Agrawal  
+## 👥 Team: **Codomania-Legends**
 
+- 👨‍💻 **Anshul Vishwakarma** *(Team Leader)*
+- 👩‍💻 **Vidhi Agrawal**
 
 ---
 
-## 🛠 In Progress
+## 🛠 Coming Soon
 
-- ❤ Like & Save Event Feature  
-- 🧾 E-Certificate Generation (Planned)  
-- 🔔 Notifications for event updates  
-- 📊 events details will be available without network too dashboard (Planned)
+- 🧾 **E-Certificate Generation**
+- 🔔 **Notifications for Event Updates**
+- 📊 **Offline Dashboard Support**
+- 🛎 **Event Reminders**
 
 ---
 
 ## 📷 Screenshots  
-we will add it later
+*(To be added later)*
 
 ---
----
 
-## 📌 Note
-
-> This project is being actively developed as part of a hackathon. Some features are under construction 🚧.
-
----
+> ⚠️ *This is a hackathon build — many features are still under construction! Stay tuned for updates.* 🚧

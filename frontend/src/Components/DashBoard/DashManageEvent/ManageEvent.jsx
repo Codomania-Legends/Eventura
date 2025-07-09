@@ -84,11 +84,11 @@ function ManageEvent() {
                         </div>
                     </div>
                     <div className="eventUpdate-manage flex">
-<<<<<<< HEAD
-                        <img className='img-manage' src="/workshop2.jpg" alt="Event Image"/>
-=======
-                        <img className='img-manage' src={`/${myEvent.image}`} alt="Event Image"/>
->>>>>>> 3f8a2285c4aaa4c0e4cf2f11e756b7bd3d28f51d
+                        <img
+                          className='img-manage'
+                          src={myEvent.image ? `/${myEvent.image}` : '/workshop2.jpg'}
+                          alt="Event Image"
+                        />
                         <div className="manageEventDetails-manage flex">
                             <h1 className='heading-manage'><i>{myEvent.eventName}</i></h1>
                             <span className="description-manage">

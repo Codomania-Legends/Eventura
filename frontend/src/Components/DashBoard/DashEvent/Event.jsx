@@ -5,13 +5,8 @@ function Event({event}) {
     <div className="eventContainer flex">
         <div className="events-event flex">
             <div className="image-left-event flex">
-<<<<<<< HEAD
-                <img className='eventImage-event' src="/workshop2.jpg" alt="Event Image" />
-                <span className='typeOfEvent'>Workshop</span>
-=======
                 <img className='eventImage-event' src={`/${event.image}`} alt="Event Image" />
                 <span className='typeOfEvent'>{event.eventType}</span>
->>>>>>> 3f8a2285c4aaa4c0e4cf2f11e756b7bd3d28f51d
             </div>
             <div className="rightEventDescription flex">
                 <div className="description-event">
