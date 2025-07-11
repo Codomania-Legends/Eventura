@@ -24,3 +24,6 @@
     width: 15%;
     justify-content: end;
 }
+.home , .event , .blog , .aboout-us , .dashboard , .contact-us{
+    cursor: pointer;
+}

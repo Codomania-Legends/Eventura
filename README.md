@@ -1,5 +1,4 @@
 # 🚀 Eventura – Event Management System  
-**Built with 💻 during the HackOrbit Hackathon**
 
 Eventura is a modern web-based platform to **host**, **explore**, and **interact with events**. It’s built for both event creators and attendees — all tools in one place.
 
@@ -19,21 +18,6 @@ Eventura is a modern web-based platform to **host**, **explore**, and **interact
 - ✅ **MongoDB-powered backend**
 - ✅ **Like/Save feature** (in progress)
 - ✅ **Contact/Query form**
-
----
-
-## 🛠 Development Checkpoints
-
-| Commit | Description                            |
-|--------|----------------------------------------|
-| 1st    | Initialized React app with modules     |
-| 2nd    | Created navbar and started Home        |
-| 3rd    | Finalized responsive Home page         |
-| 4th    | Built event "Options" category page    |
-| 5th    | Added GSAP animations + Footer layout  |
-| 6th    | Login/Signup pages with validation     |
-| 7th    | Finalized Footer (social icons)        |
-| 8th    | Complete backend (Node + MongoDB)      |
 
 ---
 
@@ -80,5 +64,3 @@ Eventura is a modern web-based platform to **host**, **explore**, and **interact
 *(To be added later)*
 
 ---
-
-> ⚠️ *This is a hackathon build — many features are still under construction! Stay tuned for updates.* 🚧

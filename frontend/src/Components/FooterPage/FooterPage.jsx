@@ -53,7 +53,7 @@ function FooterPage() {
   }, []);
 
   return (
-    <div className="footer-page flex">
+    <div id='footer' className="footer-page flex">
       <div className="foot-detail flex">
         <section className="foot-section1 flex">
           <div className="extra-head animateMe">
