@@ -84,16 +84,16 @@ function Options() {
             <button style={{overflow : "hidden"}} onClick={() => navigate("/dashboard/events")} className="button all-events">All Events</button>
           </div>
           <div className="btn2 btn flex ">
-            <button style={{overflow : "hidden"}} className="button your-registration">Your Registration</button>
+            <button style={{overflow : "hidden"}} onClick={() => navigate("/dashboard/registration")} className="button your-registration">Your Registration</button>
           </div>
           <div className="btn3 btn flex ">
-            <button style={{overflow : "hidden"}} className="button host-an-event">Host an Event</button>
+            <button style={{overflow : "hidden"}} onClick={() => navigate("/dashboard/eventform")} className="button host-an-event">Host an Event</button>
           </div>
           <div className="btn4 btn flex ">
-            <button style={{overflow : "hidden"}} className="button manage-event">Manage Event</button>
+            <button style={{overflow : "hidden"}} onClick={() => navigate("/dashboard/manage")} className="button manage-event">Manage Event</button>
           </div>
           <div className="btn5 btn flex ">
-            <button style={{overflow : "hidden"}} className="button reminder">Reminder</button>
+            <button style={{overflow : "hidden"}} onClick={() => navigate("/dashboard/reminder") } className="button reminder">Reminder</button>
           </div>
         </section>
       </div>

@@ -23,7 +23,7 @@ function DashSideBar({active}) {
               <i class="fa-regular fa-paper-plane"></i>
               <span className='addMargin-sidebar'>All Events</span>
             </div>
-            <div onClick={() => alert("Upcomming Feature")} className="home-sidebar sidebar-content flex">
+            <div onClick={() => navigate("/dashboard/registration")} className="home-sidebar sidebar-content flex">
               <i class="fa-solid fa-chart-simple"></i>
               <span className='addMargin-sidebar'>Your Registrations</span>
             </div>
@@ -36,7 +36,7 @@ function DashSideBar({active}) {
               <span className='addMargin-sidebar'>Manage your Event</span>
             </div>
             {/* Upcoming Feature */}
-            <div onClick={() => alert("Upcomming Feature") } className="home-sidebar sidebar-content flex">
+            <div onClick={() => navigate("/dashboard/reminder") } className="home-sidebar sidebar-content flex">
               <i class="fa-solid fa-bell"></i>
               <span className='addMargin-sidebar'>Reminders</span>
             </div>
