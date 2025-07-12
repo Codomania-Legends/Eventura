@@ -1,101 +1,92 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import "./LeftDashForm.css"
+import "./DashForm.css"
 import DashNav from '../DashComponent/DashNav'
 import DashSideBar from '../DashComponent/DashSideBar'
-import LeftDashForm from './LeftDashForm';
-import RightDashForm from './RightDashForm';
 
 function DashForm() {
-  const [eventData, setEventData] = useState({});
-  const [message, setMessage] = useState("");
-
-  const handleEventChange = (field, value) => {
-    setEventData(prev => ({ ...prev, [field]: value }));
-  };
-
-  const handleCreateEvent = async (e) => {
-    e.preventDefault();
-    try {
-      const token = localStorage.getItem('token');
-      const {
-        eventName,
-        eventType,
-        description,
-        day,
-        month,
-        year,
-        hour,
-        minute,
-        ampm,
-        venue,
-        limitedSeats,
-        seatCount,
-        volunteers,
-        chiefGuest,
-        specialMembers
-      } = eventData;
-
-      const date = year && month && day ? `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}` : undefined;
-      const time = hour && minute && ampm ? `${hour.padStart(2, '0')}:${minute.padStart(2, '0')} ${ampm}` : undefined;
-
-      const volunteersArr = volunteers ? volunteers.split(/,|\n/).map(v => v.trim()).filter(Boolean) : [];
-      const specialMembersArr = specialMembers ? specialMembers.split(/,|\n/).map(v => v.trim()).filter(Boolean) : [];
-
-      const payload = {
-        eventName,
-        eventType,
-        description,
-        date,
-        time,
-        venue,
-        limitedSeats: !!limitedSeats,
-        seatCount: seatCount ? Number(seatCount) : undefined,
-        volunteers: volunteersArr,
-        chiefGuest,
-        specialMembers: specialMembersArr,
-        hostName : "Anshul",
-        image : "workshop.png",
-        impressions : 150,
-        total_r : 100
-      };
-      console.log(payload);
-      await axios.post('http://localhost:5000/event', payload, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setMessage('Event created successfully!');
-      setEventData({});
-    } catch (err) {
-      console.log(err.message)
-      setMessage('Failed to create event');
-    }
-  };
-
   return (
     <>
         <div className="dashbody flex">
-            <section className="sidebar-dash flex">
-                <DashSideBar />
-            </section>
+          <section className="sidebar-dash flex">
+            <DashSideBar />
+          </section>
             <section className="content-dash flex">
-                <div className="navbar-dash-body">
-                    <DashNav />
+              <div className="navbar-dash-body">
+                <DashNav />
+              </div>
+              <div className="detailed-form-content flex">
+                <div className="formcontent-baksa flex">
+               {/* <form method='post'>  */}
+                  <section className="left-form-sec flex">
+
+                    <div className="event-name-input-box event-input-dabba  flex">
+                      <input type="text" placeholder='Event Name' className="event-input-boxx" />
+                    </div>
+
+                    <div className="event-type-input-box event-input-dabba   flex">
+                      <input type="text" placeholder='Event Type' className="event-input-boxx" />
+                    </div>
+
+                    <div className="event-description-input-box event-input-dabba flex">
+                      <input type="text" placeholder='Event Description' className="event-input-boxx" />
+                    </div>
+
+                    <div className="event-date-time-input-box flex">
+                      <div className="event-date-input-box flex">
+                        <input type="date" className="event-input-boxx" />
+                      </div>
+                      <div className="event-time-input-box flex">
+                        <input type="time" className="event-input-boxx" />
+                      </div>
+                    </div>
+
+                    <div className="event-venue-input-box event-input-dabba flex">
+                      <input type="text" placeholder='Event Venue' className="event-input-boxx" />
+                    </div>
+                    <div className="event-seat flex">
+                      <div className="yexx-boxx flex">
+                        <input type="checkbox" />
+                        <span>Yess</span>
+                      </div>
+                      <div className="no-boxx flex">
+                        <input type="checkbox" />
+                        <span>No</span>
+                      </div>
+                      <div className="option-wala-drop flex">
+                        <span>If yes than count:   </span>
+                        <select name="seat" className='select-num'>
+                          {
+                            [...Array(50)].map( (_,i) => (
+                              <option key={i + 1} value={i + 1}>{i + 1}</option>
+                             ) )
+                          }
+                        </select>
+                      </div>
+                    </div>
+                  </section>
+                  <section className="right-form-sec flex">
+                    <div className="event-volunteer-input-box event-input-dabba flex">
+                      <input type="text" placeholder='Event Volunteers Names' className="event-input-boxx" />
+                    </div>
+                    <div className="event-cheif-input-box event-input-dabba flex">
+                      <input type="text" placeholder='Event Cheif Guests Names' className="event-input-boxx" />
+                    </div>
+                    <div className="event-special-input-box event-input-dabba flex">
+                      <input type="text" placeholder='Event Special Members Names' className="event-input-boxx" />
+                    </div>
+                    <div className="event-outline-input-box flex">
+                      <input type="file" placeholder='Upload' className="event-outline" />
+                    </div>
+                    <div className="submit-button flex">
+                      <button className="submitti-btn">Submit <i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                  </section>
+                  {/* </form> */}
+
                 </div>
-                <div className="head-sec flex">
-                    <i className="fa-solid fa-arrows-turn-right"></i>
-                    <h1>Event Information</h1>
-                </div>
-                <form className="form-detail-sec flex" onSubmit={handleCreateEvent}>
-                    <section className="left-info-sec flex">
-                        <LeftDashForm eventData={eventData} onEventChange={handleEventChange} />
-                    </section>
-                    <div className="center-line"></div>
-                    <section className="right-info-sec flex">
-                        <RightDashForm eventData={eventData} onEventChange={handleEventChange} />
-                    </section>
-                    <button type="submit" className="create-event-btn">Create Event</button>
-                    {message && <div className="event-message">{message}</div>}
-                </form>
+
+              </div>
             </section>
         </div>
     </>

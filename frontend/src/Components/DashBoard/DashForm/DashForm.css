@@ -1,0 +1,91 @@
+.detailed-form-content {
+    height: 90%;
+    width: 100%;
+}
+.formcontent-baksa.flex {
+    height: 90%;
+    width: 80%;
+    border-radius: 1em;
+    background-color: #001329;
+}
+section.left-form-sec, .right-form-sec {
+    height: 100%;
+    width: 50%;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+.left-form-sec{
+    border-right: 1px solid white;
+    
+}
+
+.event-input-dabba {
+    height: 10%;
+    width: 80%;
+}
+.event-input-boxx{
+    height: 100%;
+    width: 90%;
+    border-bottom: 1px solid white;
+}
+.event-input-boxx::placeholder{
+    padding-left: 1em;
+    color: white;
+}
+.event-date-time-input-box {
+    height: 10%;
+    width: 75%;
+    justify-content: space-between;
+}
+.event-date-input-box, .event-time-input-box {
+    height: 100%;
+    width: 45%;
+
+}
+.event-outline {
+    border-bottom: 1px solid white;
+    height: 80%;
+    width: 75%;
+}
+.event-outline-input-box.flex {
+    height: 10%;
+    width: 70%;
+    justify-content: start;
+}
+.event-seat {
+    color: white;
+    height: 10%;
+    width: 70%;
+    justify-content: space-between;
+}
+.yexx-boxx, .no-boxx {
+    height: 100%;
+    width: 15%;
+    justify-content: space-evenly;
+}
+.option-wala-drop.flex {
+    height: 100%;
+    width: 60%;
+}
+.select-num {
+    background-color: #98A1BC;
+    height: 65%;
+    width: 25%;
+    border-radius: 0.5em;
+}
+.submit-button{
+    height: 10%;
+    width: 50%;
+}
+button.submitti-btn {
+    height: 85%;
+    width: 75%;
+    border-radius: 1em;
+    background-color: #98A1BC;
+    color: white;
+}
+/* .event-outline{
+    border: none;
+    outline: none;
+    background-color: transparent;
+} */
