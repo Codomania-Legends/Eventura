@@ -7,29 +7,56 @@ import FilterOption from './FilterOption'
 import BottomFilter from './BottomFilter'
 import axios from 'axios'
 import { Navigate } from 'react-router'
+import {PuffLoader} from "react-spinners"
 
 function DashEvent() {
     const [ events , setEvents ] = useState([])
     const [ allEvents , setAll ] = useState([])
-    useEffect( () => {
+    const [ imageLoaded , setImageLoaded ] = useState(false)
+    useEffect(() => {
         async function handleGetAllEvents() {
-            if( !localStorage.getItem("token") ) return Navigate("/login")
+            if (!localStorage.getItem("token")) return Navigate("/login");
+
             const token = "BEARER ".concat(localStorage.getItem("token"));
-            const res = await axios.get( "http://localhost:5000/event" , {
-                headers: {
-                    Authorization: token
-                }
-            } )
-            if( !res.data ) throw new Error("Internal Server Error")
-            setEvents(res.data)
-            setAll(res.data)
+            const res = await axios.get("http://localhost:5000/event", {
+            headers: {
+                Authorization: token,
+            },
+            });
+
+            if (!res.data) throw new Error("Internal Server Error");
+
+            setEvents(res.data);
+            setAll(res.data);
         }
-        handleGetAllEvents()
+
+        handleGetAllEvents();
         console.log(events)
-    } , [] )
+    }, []); 
+
+    useEffect(() => {
+    if (events.length !== 0) {
+        async function preLoadAllImages() {
+        const imgUrls = events.map((e) => e.image);
+        const promises = imgUrls.map((url) => {
+            return new Promise((resolve) => {
+            const img = new Image();
+            img.src = url;
+            img.onload = resolve;
+            img.onerror = resolve;
+            });
+        });
+
+        await Promise.all(promises);
+        setImageLoaded(true);
+        }
+
+        preLoadAllImages();
+    }
+    }, [events]);
   return (
     <>
-        <div className="dashbody flex">
+        {imageLoaded ? <div className="dashbody flex">
             <section className="sidebar-dash flex">
                 <DashSideBar />
             </section>
@@ -38,7 +65,7 @@ function DashEvent() {
                     <DashNav />
                 </div>
                 <div className="AlleventsAndFilter flex">
-                    <div className="allEventsContentBody">
+                    <div className="allEventsContentBody flex">
                         {events.length != 0 && events.map( (each) => (<Event event={each} />) )}
                     </div>
                     <div className="otherFilterOptions flex">
@@ -63,7 +90,7 @@ function DashEvent() {
                     <BottomFilter />
                 </div>
             </section>
-        </div>
+        </div> : <PuffLoader />}
     </>
   )
 }

@@ -156,3 +156,20 @@ button.RegisterButton {
     transform: rotate(90deg);
     transition: 0.5s;
 }
+
+/* Registe Event Div */
+
+.registerEventContainer {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    backdrop-filter: blur(5px);
+}
+img.image-event {
+    height: 10%;
+}
+.registerDiv {
+    height: 50%;
+    width: 50%;
+    flex-direction: column;
+}
