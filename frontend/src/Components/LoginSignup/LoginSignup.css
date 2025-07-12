@@ -42,7 +42,7 @@ section.sub-detail-signup, .sub-detail-login {
     transition: 0.5s;
 }
 
-.signusername:focus{ box-shadow: 0 0 10px white; }
+.loginusername:focus{ box-shadow: 0 0 10px white; }
 .loginpassword:focus{ box-shadow: 0 0 10px white; }
 .signusername:focus{ box-shadow: 0 0 10px white; }
 .signpassword:focus{ box-shadow: 0 0 10px white; }
@@ -55,6 +55,13 @@ section.sub-detail-signup, .sub-detail-login {
     border-radius: 2em;
     background: #fffdf8;
     padding: 0.5em 1em;
+    transition: 0.5s;
+}
+.selected{
+    background-color: #000;
+    color: white;
+    box-shadow: 0 0 10px white;
+    transition: 0.5s;
 }
 .identification.flex {
     height: 20%;
@@ -62,15 +69,21 @@ section.sub-detail-signup, .sub-detail-login {
     justify-content: space-evenly;
 }
 .submission.flex {
-    height: 20%;
+    height: 40%;
     width: 60%;
 }
 .submitting-login, .submitting-sign {
-    height: 55%;
-    width: 40%;
     border-radius: 2em;
     color: white;
     background-color: #0B384D;
+    padding: 0.8em 2em;
+    transition: 0.5s;
+}
+button.submitting-login:hover, button.submitting-sign:hover {
+    transition: 0.5s;
+    background: white;
+    color: #0b384d;
+    box-shadow: 0px 0px 4px white;
 }
 img.img-login-back {
     height: 100vh;
@@ -90,15 +103,42 @@ img.leaf-image-login {
 }
 form.sub-detail-signup.flex {
     flex-direction: column;
-    height: 50%;
+    height: 60%;
     width: 100%;
-}
-.selected{
-    background-color: #000;
-    color: white;
-    box-shadow: 0 0 10px white;
 }
 .signup-message{
     position: absolute;
     top: 5%;
 }
+.forgotPasswordSignup {
+    font-size: small;
+    width: 60%;
+    display: flex
+;
+    justify-content: space-between;
+}
+.forgotPassword , .signup{
+    cursor: pointer;
+}
+.questionMark{ transition: 0.5s; }
+.forgotPassword:hover > .questionMark {
+  transform: rotate(180deg);
+  transition: transform 0.5s;
+}
+
+.signup:hover{
+    text-decoration: underline;
+    transition: 0.5s;
+}
+.login-message{
+    position: absolute;
+}
+.login-message {
+    position: absolute;
+    top: 5%;
+    background: #ff3232;
+    padding: 0.5em 2em;
+    border-radius: 5em;
+    transition: 0.5s;
+}
+.success-message{ background: #39ff32; }

@@ -7,7 +7,7 @@ function Login() {
   const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState({"msg" : "" , "type" : ""});
 
   useEffect( () => {
     const timeLine = gsap.timeline()
@@ -30,7 +30,7 @@ function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!username || !password) {
-      setMessage("Both fields are required");
+      setMessage({msg : "Both fields are required" , type : "err"});
       return;
     }
     try {
@@ -45,10 +45,11 @@ function Login() {
           }
         }
       );
-      setMessage(res.data.message || "Login successful!");
+      setMessage({msg : "Login successful!" , type : "success"});
       localStorage.setItem("username" , username)
-      if( res.data.user ) navigate("/dashboard/events")
+      if( res.data.user ) navigate("/")
     } catch (err) {
+      setMessage({msg : `${err.response?.data?.error || "Login failed"}` , type : "err"});
       setMessage(err.response?.data?.error || "Login failed");
     }
   };
@@ -66,19 +67,33 @@ function Login() {
               <form className="sub-detail-signup flex" onSubmit={handleSubmit}>
                 <div className="login-username flex">
                   <span>Username</span>
-                  <input type="text" placeholder="Enter Username" className="loginusername" value={username} onChange={e => setUsername(e.target.value)} />
+                  <input type="text" 
+                    placeholder="Enter Username" 
+                    className="loginusername" 
+                    value={username} 
+                    onChange={e => setUsername(e.target.value)} 
+                    onFocus={ () => setMessage({msg : "" , type : ""}) }
+                  />
                 </div>
                 <div className="login-password flex">
                   <span>Password</span>
-                  <input type="password" placeholder="Enter Password" className="loginpassword" value={password} onChange={e => setPassword(e.target.value)} />
+                  <input 
+                    type="password" 
+                    onFocus={ () => setMessage("") } 
+                    placeholder="Enter Password" 
+                    className="loginpassword" 
+                    value={password} 
+                    onChange={e => setPassword(e.target.value)} 
+                  />
                 </div>
                 <div className="forgotPasswordSignup">
-                  
+                  <div className="forgotPassword">Forgot Password <i class="fa-solid fa-question questionMark"></i></div>
+                  <div className="signup" onClick={() => navigate("/signup")}>Signup</div>
                 </div>
                 <div className="submission flex">
                   <button className="submitting-login" type="submit">Submit</button>
                 </div>
-                {message && <div className="login-message">{message}</div>}
+                {message.msg && <div className={`login-message ${message.type=="err"?"error-message":"success-message"}`}>{message.msg}</div>}
               </form>
             </section>
         </div>

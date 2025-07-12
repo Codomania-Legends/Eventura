@@ -16,11 +16,11 @@ function Navbar() {
       opacity : 0,
       stagger : 0.2
     } )
-    gsap.from( ".img_animate" , {
+    gsap.fromTo( ".img_animate" , {
       x : -20,
       y : -20,
       opacity : 0
-    } )
+    },{ x:0,y:0,opacity:1 } )
   } , [] )
   return (
     <>
@@ -36,7 +36,7 @@ function Navbar() {
                 </div>
                 <div className="contact-us flex animate_nav" onClick={
                       () => navigate("/login")
-                  }><span>Login</span></div>
+                  }><span>{ localStorage.getItem("username") && localStorage.getItem("token") ? localStorage.getItem("username") : "Login" }</span></div>
             </div>
         </main>
     </>
