@@ -1,9 +1,9 @@
-.blog-home{
+.blog-home {
     margin: 0;
     padding: 0;
-    height: 200vh;
+    height: 230vh;
     width: 100%;
-    background-image: url('/backgroundimage.png');
+    background-image: url(/backgroundimage.png);
     background-size: cover;
     overflow-y: scroll;
     scrollbar-width: none;

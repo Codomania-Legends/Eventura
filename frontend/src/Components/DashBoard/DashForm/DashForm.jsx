@@ -35,9 +35,11 @@ function DashForm() {
                     <div className="event-date-time-input-box flex">
                       <div className="event-date-input-box flex">
                         <input type="date" className="event-input-boxx" />
+                        <i class="fa-solid fa-calendar calendar-icon"></i>
                       </div>
                       <div className="event-time-input-box flex">
                         <input type="time" className="event-input-boxx" />
+                        <i class="fa-solid fa-clock clock-icon"></i>
                       </div>
                     </div>
 

@@ -51,6 +51,7 @@ section.left-form-sec, .right-form-sec {
     height: 10%;
     width: 70%;
     justify-content: start;
+    /* border-bottom: 1px solid white; */
 }
 .event-seat {
     color: white;
@@ -84,6 +85,57 @@ button.submitti-btn {
     background-color: #98A1BC;
     color: white;
 }
+input[type="date"] {
+  color: white;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+}
+/* .event-date-input-box{
+    position: relative;
+    display: inline-block;
+} */
+.calendar-icon {
+    color: white;
+    position: absolute;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: small;
+    left: 37%;
+    top: 61%;
+}
+input[type="time"]{
+    color: white !important; 
+}
+input[type="time"]::placeholder {
+  color: white;
+}
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+}
+.clock-icon {
+    position: absolute;
+    transform: translateY(-50%);
+    color: white;
+    pointer-events: none;
+    left: 51%;
+    top: 61%;
+}
+/* .event-outline-input-box label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    padding-left: 1em;
+    font-size: small;
+}
+input[type="file"] {
+  display: none;
+} */
 /* .event-outline{
     border: none;
     outline: none;
