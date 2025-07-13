@@ -29,8 +29,8 @@ function DashNav() {
                     <b>{localStorage.getItem("username")}</b>
                 </span>
             </div>
-            <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/>
-            <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} />
+            {/* <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/> */}
+            {/* <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} /> */}
         </nav>
     )
 }
