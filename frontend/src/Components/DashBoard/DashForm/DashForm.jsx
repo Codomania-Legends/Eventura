@@ -9,7 +9,7 @@ function DashForm() {
     <>
         <div className="dashbody flex">
           <section className="sidebar-dash flex">
-            <DashSideBar />
+            <DashSideBar active={3}/>
           </section>
             <section className="content-dash flex">
               <div className="navbar-dash-body">

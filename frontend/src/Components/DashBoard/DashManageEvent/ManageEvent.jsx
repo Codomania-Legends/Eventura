@@ -63,7 +63,7 @@ function ManageEvent() {
   return (
     <div className="dashbody flex">
         <section className="sidebar-dash flex">
-            <DashSideBar />
+            <DashSideBar active={4}/>
         </section>
         <section className="content-dash flex">
             <div className="navbar-dash-body">
