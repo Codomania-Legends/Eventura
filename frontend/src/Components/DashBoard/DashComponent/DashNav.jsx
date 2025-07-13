@@ -7,6 +7,7 @@ function DashNav() {
             <div className="logo-dash flex">
                 <img src="/black-logo.png" className='EventLogo' alt="EventLogo" />
             </div>
+            
             <div className="blog-dash flex" onClick={() => navigate("/blog")}>
                 <i class="fa-solid fa-blog"></i>
                 <span className='marginNavbar-dash'>Blogs</span>
