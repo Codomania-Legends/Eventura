@@ -27,9 +27,10 @@ section.left-form-sec, .right-form-sec {
     height: 100%;
     width: 90%;
     border-bottom: 1px solid white;
+    color: white;
+    padding-left: 1em;
 }
 .event-input-boxx::placeholder{
-    padding-left: 1em;
     color: white;
 }
 .event-date-time-input-box {
@@ -66,12 +67,15 @@ section.left-form-sec, .right-form-sec {
 .option-wala-drop.flex {
     height: 100%;
     width: 60%;
+    justify-content: space-around;
 }
 .select-num {
     background-color: #98A1BC;
     height: 60%;
     width: 30%;
     border-radius: 0.5em;
+    color: white;
+    padding-left: 1em;
 }
 
 .submit-button{
