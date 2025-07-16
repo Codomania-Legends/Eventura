@@ -4,6 +4,12 @@
 .likedUnActive{
     opacity: 0;
 }
+.sacedActive{
+    opacity: 1;
+}
+.sacedUnActive{
+    opacity: 0;
+}
 .fade{
     opacity: 0;
     height: 0;
@@ -31,10 +37,10 @@ section.heading-section.flex {
     font-size: x-large;
     cursor: pointer;
 }
-span.liked-text {
+.liked-text {
     font-weight: bold;
 }
-span.event-text {
+.event-text {
     font-style: italic;
 }
 

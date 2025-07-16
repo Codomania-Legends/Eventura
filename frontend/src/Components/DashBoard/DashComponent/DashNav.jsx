@@ -3,8 +3,10 @@ import { useNavigate } from 'react-router'
 import gsap from "gsap"
 import Liked from "../Liked/Liked"
 import "../Liked/Liked.css"
+import Saved from '../Saved/Saved'
 function DashNav() {
     const [ liked, setLiked ] = useState(false)
+    const [ saved, setSaved ] = useState(false)
     useEffect( () => {
         const timeLine = gsap.timeline()
         timeLine.fromTo( ".animateNav-dashboard" , 
@@ -33,7 +35,7 @@ function DashNav() {
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input className='searchInputEvent' type="text" placeholder='Search any Event' />
             </div>
-            <div className="saved-dash flex animateNav-dashboard">
+            <div className="saved-dash flex animateNav-dashboard" onClick={() => setSaved(!saved)}>
                 <i class="fa-solid fa-bookmark"></i>
                 <span className='marginNavbar-dash'>Saved</span>
             </div>
@@ -50,6 +52,7 @@ function DashNav() {
             {/* <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/> */}
             {/* <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} /> */}
             <Liked visible={liked} class__={liked ? "likedActive" : "likedUnActive"} onClose={() => setLiked(false)} />
+            <Saved visible={saved} class__={saved ? "savedActive" : "savedUnActive"} onClose={() => setLiked(false)} />
         </nav>
     )
 }

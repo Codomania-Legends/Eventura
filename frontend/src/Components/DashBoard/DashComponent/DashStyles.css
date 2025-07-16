@@ -87,6 +87,9 @@ img.EventLogo {
 .liked-dash{
     cursor: pointer;
 }
+.saved-dash{
+    cursor: pointer;
+}
 .welcome-dash{
     flex-direction: column;
 }
