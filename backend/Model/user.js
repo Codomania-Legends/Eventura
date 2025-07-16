@@ -7,7 +7,9 @@ const user_schema = new Schema( {
         enum: [ "Admin" , "Student" , "Faculty" ], 
         required: true 
     },
-    eventParticipated : [ {type : String} ]
+    eventParticipated : [ {type : String} ],
+    likedEvents : [ {type : String} ],
+    savedEvents : [{type : String}]
 } ) 
 
 const USER = model( "user" , user_schema )
