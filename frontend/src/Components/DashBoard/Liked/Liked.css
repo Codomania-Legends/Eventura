@@ -5,7 +5,7 @@
     opacity: 0;
 }
 .liked-ka-dabba {
-    background-color: #01234b;
+    background-color: #001329;
     color: white;
     position: absolute;
     height: 65%;
@@ -14,6 +14,7 @@
     border-radius: 1em;
     z-index: 6;
     flex-direction: column;
+    box-shadow: 4px 4px 4px rgb(0 0 0 / 25%);
 }
 section.heading-section.flex {
     height: 15%;

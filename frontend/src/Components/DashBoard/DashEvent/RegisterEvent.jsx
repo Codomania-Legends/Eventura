@@ -6,6 +6,7 @@ import { useState } from 'react';
 function RegisterEvent({event , setShowBox , showBox }) {
   async function handleRegisterEvent() {
       try{
+        console.log("hello")
         const token = localStorage.getItem("token");
         const res = await axios.post(
           "http://localhost:5000/event/register",
@@ -68,9 +69,11 @@ function RegisterEvent({event , setShowBox , showBox }) {
       </div>
       <div className="totalRegistrations flex">
         <button 
-          onClick={regis ? handleRegisterEvent : ""} 
+          onClick={() => !regis ? handleRegisterEvent() : null} 
           id={`${regis ? "disable" : ""}`}
-          className={`Button-registration`}>
+          className={`Button-registration`}
+          disabled={regis}
+        >
             { (regis ? "Registered" : "Register") }
         </button>
       </div>
