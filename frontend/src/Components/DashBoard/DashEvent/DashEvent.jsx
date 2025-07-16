@@ -7,10 +7,11 @@ import FilterOption from './FilterOption'
 import BottomFilter from './BottomFilter'
 import axios from 'axios'
 import {gsap} from "gsap"
-import { Navigate } from 'react-router'
+import { Navigate, useNavigate } from 'react-router'
 import { PuffLoader } from "react-spinners"
 
 function DashEvent() {
+    const navigate = useNavigate()
     const [events, setEvents] = useState([])
     const [allEvents, setAll] = useState([])
     const [imageLoaded, setImageLoaded] = useState(false)
@@ -26,7 +27,7 @@ function DashEvent() {
             setRegisteredEevents(e)
         }
         async function handleGetAllEvents() {
-            if (!localStorage.getItem("token")) return Navigate("/login");
+            if (!localStorage.getItem("token")) return navigate("/login");
 
             const token = "BEARER ".concat(localStorage.getItem("token"));
             const res = await axios.get("http://localhost:5000/event", {

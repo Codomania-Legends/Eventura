@@ -52,8 +52,9 @@
     text-decoration: underline;
     font-style: italic;
 }
-.eventImage-event{
-    height: 50%;
+.eventImage-event {
+    height: 45%;
+    border-radius: 0.6em;
 }
 .image-left-event {
     height: 100%;
