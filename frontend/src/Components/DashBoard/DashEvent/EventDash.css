@@ -29,15 +29,10 @@
 .allEventsContentBody {
     height: 100%;
     width: 90%;
-    display: grid
-;
     grid-template-columns: 1fr 1fr;
-    box-sizing: border-box;
-    padding-bottom: 2%;
     overflow: scroll;
     scrollbar-width: none;
-    grid-gap: 2em;
-    margin-top: 2em;
+    flex-wrap: wrap;
 }
 .events-event.flex {
     width: 80%;
@@ -45,7 +40,14 @@
     height: 7em;
     padding: 0.5em;
     border-radius: 1em;
+    transition: 0.5s;
+    cursor: pointer;
 }
+.events-event.flex:hover{
+    box-shadow: 4px 4px 4px rgb(0 0 0 /25%);
+    transition: 0.5s;
+}
+
 .hostName{
     text-decoration: underline;
     font-style: italic;
@@ -89,12 +91,19 @@ span.typeOfEvent {
  {
     width: 100%;
     justify-content: space-between;
+    position: relative;
 }
 button.RegisterButton {
     color: white;
     background: #001329;
     padding: 0.2em 2em;
     border-radius: 2em;
+    cursor: pointer;
+    transition: 0.5s;
+}
+.RegisterButton:hover{
+    box-shadow: 4px 4px 4px rgb(0 0 0 /25%);
+    transition: 0.5s;
 }
 .likedSavedCross.flex {
     justify-content: space-evenly;
@@ -157,25 +166,31 @@ button.RegisterButton {
     transition: 0.5s;
 }
 
+.eventWrapper {
+    width: 50%;
+}
+
 /* Registe Event Div */
 
 .registerEventContainer {
     position: absolute;
     height: 100%;
     width: 100%;
-    backdrop-filter: blur(5px);
-    align-items: start;
+    background-color: #fff;
     z-index: 5;
+    justify-content: space-evenly;
+    top: 0;
+    right: 0;
 }
 img.image-event {
     height: 25%;
 }
 .registerDiv {
     height:95%;
-    width: 50%;
+    width: 40%;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-top: 2%;
+    font-size: large;
 }
 .eventName-register {
     font-size: x-large;
@@ -183,9 +198,88 @@ img.image-event {
     font-style: italic;
 }
 .descriptionDiv-register {
-    height: 50%;
+    height: 100%;
     display: flex;
     align-items: start;
     justify-content: space-evenly;
     flex-direction: column;
+}
+.imageDiv {
+    height: 90%;
+    width: 20%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.totalRegistrations{
+    flex-direction: column;
+}
+.totalRegistrations.flex
+ {
+    width: 20%;
+}
+.div-div-div {
+    height: 60%;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-evenly;
+}
+.line-register{
+    height: 100%;
+    width: 1px;
+    background-color: #001329;
+}
+.ul-event {
+    margin-left: 1em;
+    width: 100%;
+}
+button.Button-registration
+ {
+    background: #001329;
+    color: white;
+    padding: 1em 3em;
+    border-radius: 0.5em;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.Button-registration:hover{
+    box-shadow: 4px 4px 4px rgb(0 0 0 /25%);
+    transition: 0.5s;
+    border-radius: 5em;
+}
+.cancelRegisterPage {
+    position: absolute;
+    top: 1em;
+    right: 3em;
+    font-size: x-large;
+    transition: 0.5s;
+    cursor: pointer;
+}
+.cancelRegisterPage:hover{
+    filter: drop-shadow(4px 4px 4px rgb(0 0 0 /25%));
+    transition: 0.5s;
+}
+
+#disable{
+    background-color: #6C7382;
+    color: white;
+}
+
+.save-bookmark{
+    cursor: pointer;
+}
+
+.div-of-hover{
+    display: none;
+    transition: 0.5s;
+}
+
+.save-bookmark:hover > .div-of-hover {
+    display: block;
+    position: absolute;
+    top: -1.5em;
+    background: white;
+    padding: 0.1em 1em;
+    border-radius: 2em;
+    box-shadow: 4px 4px 4px rgb(0 0 0 /25%);
 }

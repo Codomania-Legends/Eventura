@@ -6,6 +6,7 @@ import Event from './Event'
 import FilterOption from './FilterOption'
 import BottomFilter from './BottomFilter'
 import axios from 'axios'
+import {gsap} from "gsap"
 import { Navigate } from 'react-router'
 import { PuffLoader } from "react-spinners"
 
@@ -13,8 +14,17 @@ function DashEvent() {
     const [events, setEvents] = useState([])
     const [allEvents, setAll] = useState([])
     const [imageLoaded, setImageLoaded] = useState(false)
+    const [registeredEevents , setRegisteredEevents] = useState([])
+    const [moveToLast , setMoveToLast] = useState({})
 
     useEffect(() => {
+        function handleSetRegistsredEvents( events , username ){
+            let e = []
+            events.map( (event) => {
+                event.registrations.some( (v) => v === username ) ? e.push(event.eventName) : null
+            } )
+            setRegisteredEevents(e)
+        }
         async function handleGetAllEvents() {
             if (!localStorage.getItem("token")) return Navigate("/login");
 
@@ -26,6 +36,7 @@ function DashEvent() {
             });
 
             if (!res.data) throw new Error("Internal Server Error");
+            handleSetRegistsredEvents( res.data , localStorage.getItem("username") )
             setEvents(res.data);
             setAll(res.data);
         }
@@ -54,6 +65,14 @@ function DashEvent() {
         }
     }, [events]);
 
+    useEffect( () => {
+        if (moveToLast.eventName) {
+            const newE = events.filter((e) => e.eventName !== moveToLast.eventName);
+            setEvents([...newE, moveToLast])
+            console.log([...newE , moveToLast])
+        }
+    } , [moveToLast] )
+
     return (
         <>
             {(imageLoaded && events.length > 0) ? (
@@ -68,7 +87,7 @@ function DashEvent() {
                         <div className="AlleventsAndFilter flex">
                             <div className="allEventsContentBody flex">
                                 {events.map((each) => (
-                                    <Event key={each._id} event={each} />
+                                    <Event setMoveToLast={setMoveToLast} key={each._id} event={each} registeredEevents={registeredEevents} />
                                 ))}
                             </div>
                             <div className="otherFilterOptions flex">

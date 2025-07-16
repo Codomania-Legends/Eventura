@@ -1,0 +1,13 @@
+.eventBody-registrations {
+    height: 90%;
+    width: 100%;
+}
+.eventBody-registrations {
+    height: 90%;
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+}
+.eventWrapper {
+    width: 50%;
+}

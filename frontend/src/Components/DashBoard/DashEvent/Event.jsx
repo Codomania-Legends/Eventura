@@ -1,17 +1,58 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import RegisterEvent from './RegisterEvent'
+import axios from 'axios'
+import gsap from 'gsap'
 
-function Event({ event }) {
+function Event({ event , registeredEevents , setMoveToLast , already__ }) {
     const [showBox, setShowBox] = useState(false)
     const [imgLoaded, setImgLoaded] = useState(false)
+    const [alreadyRegistered , setAlreadyRegistered] = useState(false)
+
+    async function handleSavedEvents() {
+        try {
+            const res = await axios.post("http://localhost:5000/event/save", {
+                username: localStorage.getItem("username"),
+                eventName: event.eventName,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+            if (!res.data) throw new Error("Internal Server Error");
+            alert( res.data.message )
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    async function handleLikedEvents() {
+        try {
+            const res = await axios.post("http://localhost:5000/event/like", {
+                username: localStorage.getItem("username"),
+                eventName: event.eventName,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                },
+            })
+            if (!res.data) throw new Error("Internal Server Error");
+            alert( res.data.message )
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    useEffect(() => {
+        if(registeredEevents){
+            setAlreadyRegistered(registeredEevents.some((e) => e === event.eventName))
+        }
+    }, [registeredEevents, event.eventName])
 
     return (
         <>
-            {showBox && <RegisterEvent event={event} />}
+            {showBox && <RegisterEvent event={event} setShowBox={setShowBox} showBox={showBox} />}
             <div
                 className="eventWrapper"
                 style={{ display: imgLoaded ? 'block' : 'none' }}
-                onClick={() => setShowBox(!showBox)}
             >
                 <div className="eventContainer flex">
                     <div className="events-event flex">
@@ -21,7 +62,7 @@ function Event({ event }) {
                                 src={`/${event.image}`}
                                 alt="Event"
                                 onLoad={() => setImgLoaded(true)}
-                                onError={() => setImgLoaded(true)} // fallback for broken links
+                                onError={() => setImgLoaded(true)}
                             />
                             <span className='typeOfEvent'>{event.eventType}</span>
                         </div>
@@ -34,11 +75,19 @@ function Event({ event }) {
                                 <span>Host: <b className='hostName'>{event.hostName}</b></span>
                             </div>
                             <div className="registerSavedLikedCross flex">
-                                <button className='RegisterButton'>Register</button>
+                                <button onClick={() => setShowBox(!showBox)} id={`${alreadyRegistered ? "disable" : null}`} className={`RegisterButton`}>{ 
+                                    alreadyRegistered || already__ ? "Already Registered" : "Register"
+                                }</button>
                                 <div className="likedSavedCross flex">
-                                    <i className='fa-solid fa-bookmark'></i>
-                                    <i className='fa-solid fa-heart'></i>
-                                    <i className='fa-solid fa-xmark'></i>
+                                    <i onClick={handleSavedEvents} className='fa-solid fa-bookmark save-bookmark'>
+                                        <span className='div-of-hover'>Save</span>
+                                    </i>
+                                    <i onClick={handleLikedEvents} className='fa-solid fa-heart save-bookmark'>
+                                        <span className='div-of-hover'>Like</span>
+                                    </i>
+                                    <i onClick={() => setMoveToLast(event)} className='fa-solid fa-xmark save-bookmark'>
+                                        <span className='div-of-hover'>Cross</span>
+                                    </i>
                                 </div>
                             </div>
                         </div>

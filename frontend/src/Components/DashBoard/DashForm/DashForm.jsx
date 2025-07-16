@@ -1,10 +1,26 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import "./DashForm.css"
 import DashNav from '../DashComponent/DashNav'
 import DashSideBar from '../DashComponent/DashSideBar'
+import gsap from 'gsap'
 
 function DashForm() {
+  useEffect( () => {
+    gsap.fromTo( ".detailed-form-content",
+       { opacity : 0 , y : -250 },
+       { opacity : 1 , y : 0 },
+     )
+  } , [] )
+
+  useEffect( () => {
+    gsap.fromTo( ".eventContainer" , 
+        { opacity : 0 , x : -20 , y : -20 },
+        { opacity : 1 , x : 0 , y : 0 },
+    )
+    
+  } , [] )
+  
   return (
     <>
         <div className="dashbody flex">
