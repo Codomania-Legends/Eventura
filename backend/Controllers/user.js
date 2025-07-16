@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { USER } = require('../Model/user');
 const { generateToken } = require('../Authentication/auth');
 const { CheckForDuplicateUser } = require('../Services/user');
+const { EVENT } = require('../Model/event');
 
 const SignupReqRes = async (req, res) => {
     try {
@@ -34,4 +35,30 @@ const LoginReqRes = async (req, res) => {
     }
 };
 
-module.exports = { SignupReqRes, LoginReqRes };
+const GetAllLikedEvents = async ( req , res ) => {
+    try {
+        const { username } = req.query
+        if( !username ) throw new Error("No Events")
+        const user = await USER.findOne({username})
+        const events = await EVENT.find({})
+        const likedEvents = events.filter((e) => user.likedEvents.some((ev) => ev == e.eventName));
+        res.json(likedEvents)
+    } catch (error) {
+        res.json({message : error.message})
+    }
+}
+
+const GetAllSavedEvents = async ( req , res ) => {
+    try {
+        const { username } = req.query
+        if( !username ) throw new Error("No Events")
+        const user = await USER.findOne({username})
+        const events = await EVENT.find({})
+        const savedEvents = events.filter((e) => user.savedEvents.some((ev) => ev == e.eventName));
+        res.json(savedEvents)
+    } catch (error) {
+        res.json({message : error.message})
+    }
+}
+
+module.exports = { SignupReqRes, LoginReqRes , GetAllLikedEvents , GetAllSavedEvents };

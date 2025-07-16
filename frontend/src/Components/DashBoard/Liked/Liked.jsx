@@ -1,21 +1,36 @@
 import React, { useEffect, useRef, useState } from 'react'
-import "./Liked.css"
+import "../Liked/Liked.css"
 import backarrow from "/backarrow.png"
-import {Data} from "../../Data/Data"
-import {gsap} from 'gsap'
-function Liked({class__, visible, onClose}) {
-    const [fadeout, setFadeout] = useState(false)
-    const reference = useRef(null)
-    useEffect( () => {
-        if( visible && reference.current ){
-            gsap.fromTo( reference.current, 
-                { opacity : 0, y : -100, duration : 1, ease : "power2.inOut" },
-                { opacity : 1, y : 0, duration : 1, ease : "power2.inOut" } )
-        }
-    }, [visible] )
+import { gsap } from 'gsap'
+import LikedEvents from '../Liked/LikedEvents'
+import axios from 'axios'
 
-     const handleFadeOut = () => {
-        if(reference.current) {
+function Saved({ class__, showLiked, onClose }) {
+    const reference = useRef(null)
+    const [savedEvents, setSavedEvents] = useState(null)
+
+    useEffect(() => {
+        async function handleGetAllSavedEvents() {
+            try {
+                const res = await axios.get("http://localhost:5000/user/liked?username=Anshul")
+                setSavedEvents(res.data)
+            } catch (error) {
+                console.error("Error fetching saved events:", error)
+            }
+        }
+        handleGetAllSavedEvents()
+    }, [])
+
+    useEffect(() => {
+        if (showLiked && reference.current) {
+            gsap.fromTo(reference.current,
+                { opacity: 0, y: -100 },
+                { opacity: 1, y: 0, duration: 1, ease: "power2.inOut" });
+        }
+    }, [showLiked]);
+
+    const handleFadeOut = () => {
+        if (reference.current) {
             gsap.to(reference.current, {
                 opacity: 0,
                 y: -100,
@@ -27,62 +42,35 @@ function Liked({class__, visible, onClose}) {
             })
         }
     }
-  return (
-    <>
-    {
-        visible &&
-        <div ref={reference} 
-        className={`liked-ka-dabba flex ${fadeout ? "fade" : ""}`}>
-            <section className="heading-section flex"
-            
-            onClick={handleFadeOut}>
-                <img src={backarrow} className='liked-back-arrow' />
-                <pre className='liked-text'> Liked</pre>
-                <pre className='event-text'> Event</pre>
-            </section>
-            <section className="liked-content-section flex">
-                {
-                    Data.map(( v, i ) => (
-                        <div className='liked-detail-content flex'>
-                            <section className="liked-img-sec flex">
-                                <img src={v.image} className="liked-image-dabba flex"/>
-                                <div className="liked-image-event-name flex">
-                                    <div className="li-event-name flex">
-                                        <span className="liked-event-name">{v.eventName}</span>
-                                    </div>
-                                    <div className="li-event-type flex">
-                                        <span className="liked-event-type"> {v.eventType} </span>
-                                    </div>
-                                </div>
-                            </section>
-                            <section className="liked-info-section flex">
-                                <div className="liked-registered-and-cancel flex">
-                                    <div className="registered-button flex">
-                                        <button className="regis-btn">{v.status}</button>
-                                    </div>
-                                    <div className="days-left flex">{v.daysLeft}</div>
-                                    <div className="cancel-icon flex"><i class="fa-solid fa-xmark" style={{color: "#001329;"}}></i></div>
-                                </div>
-                                <div className="people-register flex">
-                                    <div className="total-people-regis flex">{v.registeredPeople}</div>
-                                    <div className="bell-icon flex"><i class="fa-regular fa-bell" style={{color: "#001329;"}}></i></div>
-                                </div>
-                                <div className="host-name-liked flex">
-                                    <div className="host-name-like flex">{v.hostName}</div>
-                                    <div className="Liked-hrs-ago flex">{v.likedAgo}</div>
-                                </div>
-                            </section>
 
-                        </div>
-                    ))
-                }
+    return (
+        <>
+            {
+                showLiked &&
+                <div ref={reference} className={`liked-ka-dabba flex ${class__}`}>
+                    <section className="heading-section flex" onClick={handleFadeOut}>
+                        <img src={backarrow} className='liked-back-arrow' />
+                        <pre className='liked-text'> Liked</pre>
+                        <pre className='event-text'> Event</pre>
+                    </section>
 
-            </section>
-        </div>
-    }
-    
-    </>
-  )
+                    <section className="liked-content-section flex">
+                        {
+                            savedEvents === null ? (
+                                <p className='loading-text'>Loading saved events...</p>
+                            ) : savedEvents.length > 0 ? (
+                                savedEvents.map((v, i) => (
+                                    <LikedEvents key={i} v={v} />
+                                ))
+                            ) : (
+                                <p className='no-saved-text'>No saved events found.</p>
+                            )
+                        }
+                    </section>
+                </div>
+            }
+        </>
+    )
 }
 
-export default Liked
+export default Saved

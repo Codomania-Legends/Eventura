@@ -20,7 +20,6 @@ function ManageEvent() {
             setMyEvent(res.data)
         }
         getEventByName()
-        console.log(myEvent)
     } , [] )
     useEffect(() => {
         if (!myEvent) return; // Prevent running if no event data
@@ -31,7 +30,7 @@ function ManageEvent() {
             labels: ['Registrations', 'Impressions'],
             datasets: [{
                 label: '',
-                data: [40 , 45],
+                data: [myEvent.total_r , myEvent.impressions],
                 backgroundColor: ['#001329', '#FFF2F2'],
                 hoverOffset: 5,
                 borderWidth: 0
@@ -79,7 +78,7 @@ function ManageEvent() {
                             <div><b>Total</b></div>
                             <div><i>Registrations</i></div>
                             <div className="circle-manage-chart flex">
-                                40
+                                {myEvent.total_r}
                             </div>
                         </div>
                     </div>

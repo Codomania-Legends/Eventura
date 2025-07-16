@@ -1,13 +1,18 @@
 const { EVENT } = require('../Model/event');
+const { USER } = require('../Model/user');
 const { CheckForDuplicateEVentName } = require('../Services/event');
 
 const createEvent = async (req, res) => {
   try {
     console.log("Got " , req.body)
-    const { eventName } = req.body
+    const { eventName , hostName } = req.body
     const duplicateCheck = await CheckForDuplicateEVentName({eventName})
     if( !duplicateCheck ) throw new Error( "Event Name already Taken" )
     const event = new EVENT(req.body);
+    await USER.findOneAndUpdate( 
+      { username : hostName },
+      { $set : { CurrHostEvent : eventName } }
+    )
     await event.save();
     res.status(201).json({ message: 'EVENT created successfully', event });
   } catch (error) {
@@ -26,7 +31,6 @@ const getAllEvents = async (req, res) => {
 
 const getEventById = async (req, res) => {
   try {
-    // Find by eventName instead of _id
     const {hostName} = req.params
     const event = await EVENT.findOne({ hostName });
     if (!event) return res.status(404).json({ message: 'EVENT not found' });

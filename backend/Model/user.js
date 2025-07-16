@@ -9,7 +9,8 @@ const user_schema = new Schema( {
     },
     eventParticipated : [ {type : String} ],
     likedEvents : [ {type : String} ],
-    savedEvents : [{type : String}]
+    savedEvents : [{type : String}],
+    CurrHostEvent : { type : String }
 } ) 
 
 const USER = model( "user" , user_schema )
