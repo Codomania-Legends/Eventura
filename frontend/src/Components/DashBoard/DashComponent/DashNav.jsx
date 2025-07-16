@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import gsap from "gsap"
-
+import Liked from "../Liked/Liked"
+import "../Liked/Liked.css"
 function DashNav() {
+    const [ liked, setLiked ] = useState(false)
     useEffect( () => {
         const timeLine = gsap.timeline()
         timeLine.fromTo( ".animateNav-dashboard" , 
@@ -35,7 +37,7 @@ function DashNav() {
                 <i class="fa-solid fa-bookmark"></i>
                 <span className='marginNavbar-dash'>Saved</span>
             </div>
-            <div className="liked-dash flex animateNav-dashboard">
+            <div className="liked-dash flex animateNav-dashboard" onClick={() => setLiked(!liked)}>
                 <i class="fa-solid fa-heart"></i>
                 <span className='marginNavbar-dash'>Liked</span>
             </div>
@@ -47,6 +49,7 @@ function DashNav() {
             </div>
             {/* <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/> */}
             {/* <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} /> */}
+            <Liked visible={liked} class__={liked ? "likedActive" : "likedUnActive"} />
         </nav>
     )
 }

@@ -35,7 +35,7 @@ section.left-form-sec, .right-form-sec {
 }
 .event-date-time-input-box {
     height: 10%;
-    width: 72%;
+    width: 75%;
     justify-content: space-between;
 }
 .event-date-input-box, .event-time-input-box {
@@ -108,7 +108,7 @@ button.submitti-btn {
 }
 input[type="date"] {
     color: white;
-    padding-left: 1em;
+    /* padding-left: 1em; */
 }
 input[type="date"]::-webkit-calendar-picker-indicator {
     opacity: 0;
@@ -124,8 +124,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     transform: translateY(-50%);
     pointer-events: none;
     font-size: small;
-    left: 38%;
-    top: 61%;
+    left: 27%;
+    top: 57%;
 }
 input[type="time"]{
     color: white !important; 
@@ -145,8 +145,8 @@ input[type="time"]::-webkit-calendar-picker-indicator {
     transform: translateY(-50%);
     color: white;
     pointer-events: none;
-    left: 51%;
-    top: 61%;
+    left: 43%;
+    top: 57%;
 }
 /* .event-outline-input-box label {
     display: flex;

@@ -1,0 +1,55 @@
+.likedActive{
+    opacity: 1;
+}
+.likedUnActive{
+    opacity: 0;
+}
+.liked-ka-dabba {
+    background-color: #01234b;
+    color: white;
+    position: absolute;
+    height: 65%;
+    top: 1%;
+    width: 84%;
+    border-radius: 1em;
+    z-index: 6;
+    flex-direction: column;
+}
+section.heading-section.flex {
+    height: 15%;
+    width: 95%;
+    justify-content: start;
+    font-size: x-large;
+}
+span.liked-text {
+    font-weight: bold;
+}
+span.event-text {
+    font-style: italic;
+}
+
+section.liked-content-section {
+    height: 85%;
+    width: 95%;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.liked-detail-content {
+    width: 23%;
+    height: 25%;
+    background-color: #DCDCDC;
+    border-radius: 1em;
+}
+section.liked-img-sec {
+    height: 100%;
+    width: 30%;
+    flex-direction: column;
+}
+section.liked-info-section {
+    height: 100%;
+    width: 70%;
+}
+.liked-image-dabba, .liked-image-event-name {
+    height: 50%;
+    width: 100%;
+}
