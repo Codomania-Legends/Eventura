@@ -49,7 +49,7 @@ function DashNav() {
             </div>
             {/* <SavedEvents visible={savedActive} class__={savedActive ? "savedActive" : "savedUnActive"}/> */}
             {/* <LikedEvents visible={likedActive} class__={likedActive ? "likedActive" : "likedUnActive"} /> */}
-            <Liked visible={liked} class__={liked ? "likedActive" : "likedUnActive"} />
+            <Liked visible={liked} class__={liked ? "likedActive" : "likedUnActive"} onClose={() => setLiked(false)} />
         </nav>
     )
 }

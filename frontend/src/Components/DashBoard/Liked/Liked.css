@@ -4,6 +4,14 @@
 .likedUnActive{
     opacity: 0;
 }
+.fade{
+    opacity: 0;
+    height: 0;
+    width: 0;
+    background-color: transparent;
+    transition: 0.5s ease-in-out;
+
+}
 .liked-ka-dabba {
     background-color: #001329;
     color: white;
@@ -21,6 +29,7 @@ section.heading-section.flex {
     width: 95%;
     justify-content: start;
     font-size: x-large;
+    cursor: pointer;
 }
 span.liked-text {
     font-weight: bold;
@@ -31,26 +40,107 @@ span.event-text {
 
 section.liked-content-section {
     height: 85%;
-    width: 95%;
+    width: 97%;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 .liked-detail-content {
-    width: 23%;
+    width: 24%;
     height: 25%;
     background-color: #DCDCDC;
     border-radius: 1em;
+    color: #001329;
 }
 section.liked-img-sec {
     height: 100%;
     width: 30%;
     flex-direction: column;
+    position: relative;
 }
 section.liked-info-section {
     height: 100%;
     width: 70%;
+    flex-direction: column;
 }
-.liked-image-dabba, .liked-image-event-name {
-    height: 50%;
+.liked-image-dabba {
+    height: 55%;
+    border-radius: 0.5em;
+    position: absolute;
+    bottom: 65%;
+    left: 15%;
+    width: 85%;
+}
+.liked-image-event-name.flex {
+    height: 65%;
     width: 100%;
+    position: absolute;
+    bottom: 0em;
+    border-radius: 0.5em;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.li-event-name, .li-event-type {
+    height: 40%;
+    width: 80%;
+}
+.li-event-name{
+    align-items: end;
+}
+.li-event-type{
+    width: 85%;
+    align-items: start;
+    justify-content: end;
+}
+span.liked-event-name {
+    font-weight: bold;
+    /* align-self: start; */
+}
+span.liked-event-type {
+    font-size: x-small;
+    text-align: end;
+}
+.liked-registered-and-cancel, .host-name-liked, .people-register {
+    height: 30%;
+    width: 95%;
+    justify-content: space-around;
+}
+.registered-button.flex {
+    height: 100%;
+    width: 50%;
+}
+button.regis-btn {
+    height: 95%;
+    width: 90%;
+    background-color: black;
+    color: white;
+    border-radius: 3em;
+    font-size: smaller;
+}
+.days-left.flex {
+    height: 100%;
+    width: 25%;
+    font-size: smaller;
+}
+.cancel-icon.flex {
+    height: 100%;
+    width: 10%;
+}
+.total-people-regis.flex {
+    height: 100%;
+    width: 80%;
+    font-size: x-small;
+}
+.bell-icon.flex {
+    height: 100%;
+    width: 10%;
+}
+.host-name-like.flex {
+    height: 100%;
+    width: 50%;
+    font-weight: bold;
+}
+.Liked-hrs-ago.flex {
+    font-size: smaller;
+    width: 35%;
+    height: 100%;
 }

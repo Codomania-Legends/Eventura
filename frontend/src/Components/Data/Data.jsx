@@ -5,21 +5,21 @@ export let Data = [
     "eventType": "Workshop",
     "image": "/workshop2.jpg",
     "status": "Registered",
-    "timeLeft": "766",
-    "registeredPeople": "27384",
+    "daysLeft": "32 days",
+    "registeredPeople": "134 registered for this event",
     "hostName": "John Doe",
-    "registeredAgo": "2 hours ago"
+    "likedAgo": "2 hrs ago"
   },
   {
     "id": 2,
     "eventName": "TechNova",
     "eventType": "Seminar",
     "image": "/eve.jpg",
-    "status": "Registered",
-    "timeLeft": "412",
-    "registeredPeople": "18672",
+    "status": "Unregistered",
+    "daysLeft": "17 days",
+    "registeredPeople": "89 registered for this event",
     "hostName": "EventCorp",
-    "registeredAgo": "1 day ago"
+    "likedAgo": "1 day ago"
   },
   {
     "id": 3,
@@ -27,21 +27,21 @@ export let Data = [
     "eventType": "Hackathon",
     "image": "/eveista.jpg",
     "status": "Registered",
-    "timeLeft": "128",
-    "registeredPeople": "5421",
+    "daysLeft": "5 days",
+    "registeredPeople": "47 registered for this event",
     "hostName": "Tech Labs",
-    "registeredAgo": "5 minutes ago"
+    "likedAgo": "5 min ago"
   },
   {
     "id": 4,
     "eventName": "DesignSprint",
     "eventType": "Design Challenge",
     "image": "/workshop.jpg",
-    "status": "Registered",
-    "timeLeft": "308",
-    "registeredPeople": "8490",
+    "status": "Unregistered",
+    "daysLeft": "12 days",
+    "registeredPeople": "160 registered for this event",
     "hostName": "UX World",
-    "registeredAgo": "3 hours ago"
+    "likedAgo": "3 hrs ago"
   },
   {
     "id": 5,
@@ -49,9 +49,9 @@ export let Data = [
     "eventType": "Data Science Summit",
     "image": "/workshop1.jpg",
     "status": "Registered",
-    "timeLeft": "220",
-    "registeredPeople": "12937",
+    "daysLeft": "9 days",
+    "registeredPeople": "73 registered for this event",
     "hostName": "AI Connect",
-    "registeredAgo": "6 hours ago"
+    "likedAgo": "6 hrs ago"
   }
 ]
