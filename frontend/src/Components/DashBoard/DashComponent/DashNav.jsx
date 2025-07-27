@@ -16,22 +16,22 @@ function DashNav() {
         if (showSaved) setShowLiked(false)
     }, [showLiked, showSaved])
 
-    useEffect(() => {
-        const timeLine = gsap.timeline()
-        timeLine.fromTo(".animateNav-dashboard",
-            {
-                opacity: 0,
-                x: -10,
-                y: -10,
-                duration: 0.5
-            },
-            {
-                opacity: 1,
-                x: 0,
-                y: 0,
-                duration: 0.5
-            })
-    }, [])
+    // useEffect(() => {
+    //     const timeLine = gsap.timeline()
+    //     timeLine.fromTo(".animateNav-dashboard",
+    //         {
+    //             opacity: 0,
+    //             x: -10,
+    //             y: -10,
+    //             duration: 0.5
+    //         },
+    //         {
+    //             opacity: 1,
+    //             x: 0,
+    //             y: 0,
+    //             duration: 0.5
+    //         })
+    // }, [])
 
     return (
         <nav className='navbar-dash flex'>

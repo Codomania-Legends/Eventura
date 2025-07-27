@@ -1,26 +1,26 @@
 import React, { useEffect } from 'react';
 import './Navbar.css'
 import {useNavigate} from "react-router"
-import {SplitText} from "gsap/SplitText"
-import gsap from 'gsap';
+// import {SplitText} from "gsap/SplitText"
+// import gsap from 'gsap';
 
-gsap.registerPlugin(SplitText)
+// gsap.registerPlugin(SplitText)
 
 function Navbar() {
   const navigate = useNavigate()
   useEffect( () => {
-    const split = SplitText.create(".animate_nav" , { type : "words" })
-    gsap.from( split.words , {
-      x : -20,
-      y : -20,
-      opacity : 0,
-      stagger : 0.2
-    } )
-    gsap.fromTo( ".img_animate" , {
-      x : -20,
-      y : -20,
-      opacity : 0
-    },{ x:0,y:0,opacity:1 } )
+    // const split = SplitText.create(".animate_nav" , { type : "words" })
+    // gsap.from( split.words , {
+  //     x : -20,
+  //     y : -20,
+  //     opacity : 0,
+  //     stagger : 0.2
+  //   } )
+  //   // gsap.fromTo( ".img_animate" , {
+  //     x : -20,
+  //     y : -20,
+  //     opacity : 0
+  //   },{ x:0,y:0,opacity:1 } )
   } , [] )
   return (
     <>

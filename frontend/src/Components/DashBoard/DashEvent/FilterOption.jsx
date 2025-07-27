@@ -3,12 +3,12 @@ import "./EventDash.css"
 import gsap from "gsap"
 
 function FilterOption({img , text , allEvents , setAll , setEvents , events}) {
-  useEffect( () => {
-    gsap.fromTo( ".option-option" ,
-      { y : -10 , stagger : 0.1 , opacity : 0 },
-      { y : 0 , stagger : 0.1 , opacity : 1 }
-    )
-  } , [] )
+  // useEffect( () => {
+  //   gsap.fromTo( ".option-option" ,
+  //     { y : -10 , stagger : 0.1 , opacity : 0 },
+  //     { y : 0 , stagger : 0.1 , opacity : 1 }
+  //   )
+  // } , [] )
   return (
     <div onClick={() => {
       if( events == allEvents ){

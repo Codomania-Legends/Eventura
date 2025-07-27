@@ -1,6 +1,7 @@
 import React from 'react'
 import { useEffect } from 'react'
 import axios from "axios"
+import { getAuthHeaders } from '../../../Utils/auth';
 import { useState } from 'react';
 
 function RegisterEvent({event , setShowBox , showBox }) {
@@ -15,9 +16,7 @@ function RegisterEvent({event , setShowBox , showBox }) {
             eventName: event.eventName
           },
           {
-            headers: {
-              Authorization: `Bearer ${token}`
-            }
+            headers: getAuthHeaders()
           }
         )
         alert( res.data.message )

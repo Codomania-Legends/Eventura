@@ -6,9 +6,8 @@ import Event from './Event'
 import FilterOption from './FilterOption'
 import BottomFilter from './BottomFilter'
 import axios from 'axios'
-import {gsap} from "gsap"
-import { Navigate, useNavigate } from 'react-router'
-import { PuffLoader } from "react-spinners"
+import { useNavigate } from 'react-router'
+import { getAuthHeaders } from '../../../Utils/auth'
 
 function DashEvent() {
     const navigate = useNavigate()
@@ -27,43 +26,69 @@ function DashEvent() {
             setRegisteredEevents(e)
         }
         async function handleGetAllEvents() {
-            if (!localStorage.getItem("token")) return navigate("/login");
+            if (!localStorage.getItem("token")) {
+                navigate("/login");
+                return;
+            }
 
-            const token = "BEARER ".concat(localStorage.getItem("token"));
-            const res = await axios.get("http://localhost:5000/event", {
-                headers: {
-                    Authorization: token,
-                },
-            });
+            const username = localStorage.getItem("username");
+            const url = "http://localhost:5000/event";
+            const cache = await caches.open("eventura-cache-v1");
 
-            if (!res.data) throw new Error("Internal Server Error");
-            handleSetRegistsredEvents( res.data , localStorage.getItem("username") )
-            setEvents(res.data);
-            setAll(res.data);
+            const cachedResponse = await cache.match(url);
+
+            if (cachedResponse) {
+                const data = await cachedResponse.json();
+                console.log("📦 Loaded events from cache");
+
+                setEvents(data);
+                setAll(data);
+                handleSetRegistsredEvents(data, username);
+            } else {
+                const res = await axios.get(url, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${localStorage.getItem("token")}`,
+                    },
+                });
+                console.log(res)
+                const data = await res.clone().json(); // Use clone for caching
+                console.log("🌐 Loaded events from server");
+
+                setEvents(data);
+                setAll(data);
+                handleSetRegistsredEvents(data, username);
+
+                cache.put(url, res); // Save response to cache
+            }
         }
 
         handleGetAllEvents();
     }, []);
 
     useEffect(() => {
-        if (events.length !== 0) {
-            async function preLoadAllImages() {
-                const imgUrls = events.map((e) => `/${e.image}`); // ensure correct path
-                const promises = imgUrls.map((url) => {
-                    return new Promise((resolve) => {
-                        const img = new Image();
-                        img.src = url;
-                        img.onload = resolve;
-                        img.onerror = resolve;
-                    });
-                });
+        if ( events.length === 0 ) return;
 
-                await Promise.all(promises);
-                setImageLoaded(true);
+        async function handleCacheImages() {
+            const cache = await caches.open("eventura-cache-v1")
+            for (let event of events) {
+                const url = new URL(event.image, window.location.origin).href
+                const match = await cache.match(url)
+                if (!match) {
+                    try {
+                        await cache.add(url)
+                        console.log("Cached:", url)
+                    } catch (err) {
+                        console.error("Failed to cache:", url, err)
+                    }
+                }
             }
-
-            preLoadAllImages();
+            setImageLoaded(true)    
         }
+        handleCacheImages()
+        caches.open("eventura-cache-v1").then((cach) => {
+            console.log("cache : " ,cach)
+        })
     }, [events]);
 
     useEffect( () => {
@@ -76,7 +101,6 @@ function DashEvent() {
 
     return (
         <>
-            {(imageLoaded && events.length > 0) ? (
                 <div className="dashbody flex">
                     <section className="sidebar-dash flex">
                         <DashSideBar active={1} />
@@ -87,9 +111,13 @@ function DashEvent() {
                         </div>
                         <div className="AlleventsAndFilter flex">
                             <div className="allEventsContentBody flex">
-                                {events.map((each) => (
-                                    <Event setMoveToLast={setMoveToLast} key={each._id} event={each} registeredEevents={registeredEevents} />
-                                ))}
+                                {(imageLoaded && events.length > 0) ? (
+                                    events.map((each) => (
+                                        <Event setMoveToLast={setMoveToLast} key={each._id} event={each} registeredEevents={registeredEevents} />
+                                    ))
+                                ) : (
+                                    <div className="loader-container">LOADING EVENTS...</div>
+                                )}
                             </div>
                             <div className="otherFilterOptions flex">
                                 <div className="optionsFilter flex">
@@ -104,9 +132,6 @@ function DashEvent() {
                         </div>
                     </section>
                 </div>
-            ) : (
-                <div className="loader-container"><PuffLoader /></div>
-            )}
         </>
     )
 }

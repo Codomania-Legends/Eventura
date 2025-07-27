@@ -6,15 +6,15 @@ import { SplitText } from 'gsap/SplitText'
 gsap.registerPlugin(SplitText)
 
 function Q_A({question , answer, list}) {
-  useEffect(() => {
-    const split = SplitText.create(".animate_blog", { type: "words" });
-    gsap.from(split.words, {
-      y: -10,
-      opacity: 0,
-      ease: "power1.inOut",
-      stagger: 0.01,
-    });
-  }, []);
+  // useEffect(() => {
+  //   const split = SplitText.create(".animate_blog", { type: "words" });
+  //   gsap.from(split.words, {
+  //     y: -10,
+  //     opacity: 0,
+  //     ease: "power1.inOut",
+  //     stagger: 0.01,
+  //   });
+  // }, []);
   return (
     <div className="Q_A flex">
         <div className="question-blog animate_blog">

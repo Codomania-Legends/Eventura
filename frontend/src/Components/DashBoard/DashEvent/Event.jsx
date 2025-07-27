@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import RegisterEvent from './RegisterEvent'
 import axios from 'axios'
-import gsap from 'gsap'
+import { getAuthHeaders } from '../../../Utils/auth';
+// import gsap from 'gsap'
 
 function Event({ event , registeredEevents , setMoveToLast , already__ }) {
     const [showBox, setShowBox] = useState(false)
@@ -14,9 +15,7 @@ function Event({ event , registeredEevents , setMoveToLast , already__ }) {
                 username: localStorage.getItem("username"),
                 eventName: event.eventName,
             }, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
+                headers: getAuthHeaders(),
             })
             if (!res.data) throw new Error("Internal Server Error");
             alert( res.data.message )
@@ -30,9 +29,7 @@ function Event({ event , registeredEevents , setMoveToLast , already__ }) {
                 username: localStorage.getItem("username"),
                 eventName: event.eventName,
             }, {
-                headers: {
-                    Authorization: `Bearer ${localStorage.getItem("token")}`,
-                },
+                headers: getAuthHeaders(),
             })
             if (!res.data) throw new Error("Internal Server Error");
             alert( res.data.message )

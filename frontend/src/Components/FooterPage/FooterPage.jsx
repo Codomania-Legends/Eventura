@@ -6,50 +6,50 @@ import twitter from '/twitter.png';
 import linkedinlogo from '/linkedin-logo.png';
 import github from '/github.png';
 import google from '/google.png';
-import { gsap } from 'gsap';
-import { SplitText } from 'gsap/SplitText';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+// import { gsap } from 'gsap';
+// import { SplitText } from 'gsap/SplitText';
+// import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
+// gsap.registerPlugin(SplitText, ScrollTrigger);
 
 function FooterPage() {
   const splitRef = useRef(null);
 
   useEffect(() => {
-    const elements = document.querySelectorAll('.animateMe');
+    // const elements = document.querySelectorAll('.animateMe');
 
     // Revert previous SplitText if it exists
-    if (splitRef.current) {
-      splitRef.current.forEach(split => split.revert());
-    }
+    // if (splitRef.current) {
+    //   splitRef.current.forEach(split => split.revert());
+    // }
 
-    // Create SplitText animations for each animateMe element
-    const splits = [];
-    elements.forEach((el) => {
-      const split = new SplitText(el, { type: 'words' });
-      splits.push(split);
+    // // Create SplitText animations for each animateMe element
+    // const splits = [];
+    // elements.forEach((el) => {
+    //   const split = new SplitText(el, { type: 'words' });
+    //   splits.push(split);
 
-      gsap.from(split.words, {
-        y: -100,
-        opacity: 0,
-        rotation: gsap.utils.random(-80, 80),
-        duration: 0.5,
-        ease: 'back',
-        stagger: 0.05,
-        scrollTrigger: {
-          trigger: el,
-          start: 'top bottom',
-          toggleActions: 'play none none reset',
-        },
-      });
-    });
+    // gsap.from(split.words, {
+      //   y: -100,
+      //   opacity: 0,
+      //   // rotation: gsap.utils.random(-80, 80),
+      //   duration: 0.5,
+      //   ease: 'back',
+      //   stagger: 0.05,
+      //   scrollTrigger: {
+      //     trigger: el,
+      //     start: 'top bottom',
+      //     toggleActions: 'play none none reset',
+      //   },
+      // });
+    // });
 
-    splitRef.current = splits;
+    // splitRef.current = splits;
 
-    return () => {
-      splits.forEach(split => split.revert());
-      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
-    };
+    // return () => {
+    //   splits.forEach(split => split.revert());
+    //   ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    // };
   }, []);
 
   return (

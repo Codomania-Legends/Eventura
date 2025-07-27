@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {useNavigate} from "react-router"
-import gsap from "gsap"
+// import gsap from "gsap"
 
 function Login() {
   const navigate = useNavigate()
@@ -10,7 +10,7 @@ function Login() {
   const [message, setMessage] = useState({"msg" : "" , "type" : ""});
 
   useEffect( () => {
-    const timeLine = gsap.timeline()
+    // const timeLine = gsap.timeline()
     timeLine.from( ".img-login-back" , {
       opacity : 0,
       x : 100,
@@ -34,19 +34,13 @@ function Login() {
       return;
     }
     try {
-      const token = "BEARER ".concat(localStorage.getItem("token"));
-      const res = await axios.post(
-        "http://localhost:5000/user/login",
-
-        { username, password },
-        {
-          headers: {
-            Authorization: token
-          }
-        }
-      );
+      const res = await axios.post("http://localhost:5000/user/login", {
+        username,
+        password
+      });
       setMessage({msg : "Login successful!" , type : "success"});
       localStorage.setItem("username" , username)
+      localStorage.setItem("token", res.data.token);
       if( res.data.user ) navigate("/")
     } catch (err) {
       setMessage({msg : `${err.response?.data?.error || "Login failed"}` , type : "err"});

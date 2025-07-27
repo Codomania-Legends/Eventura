@@ -7,20 +7,20 @@ function DashSideBar({active}) {
   const navigate = useNavigate()
   const activeNames = ["Home","All Events","Your Registrations","Host Event","Manage Event","Your Reminders"]
   
-  useEffect( () => {
-    gsap.fromTo( ".pointer-sidebar" , {
-      x : -10,
-      opacity : 0,
-    },{
-      x : 0,
-      opacity : 1,
-    } )
-  } , [active] )
+  // useEffect( () => {
+  // //   gsap.fromTo( ".pointer-sidebar" , {
+  // //     x : -10,
+  // //     opacity : 0,
+  // //   },{
+  // //     x : 0,
+  // //     opacity : 1,
+  // //   } )
+  // // } , [active] )
   
-  useEffect( () => {
-    gsap.fromTo( ".activeOptionDash",{x:-400,ease:"bounce.inOut"},{x:0,ease:"bounce.inOut"})
-    gsap.fromTo( ".sideBarDashOptions",{x:-400,ease:"bounce.inOut"},{x:0,ease:"bounce.inOut"})
-  } , [] )
+  // useEffect( () => {
+  //   // gsap.fromTo( ".activeOptionDash",{x:-400,ease:"bounce.inOut"},{x:0,ease:"bounce.inOut"})
+  //   // gsap.fromTo( ".sideBarDashOptions",{x:-400,ease:"bounce.inOut"},{x:0,ease:"bounce.inOut"})
+  // } , [] )
   
   return (
     <>

@@ -4,7 +4,6 @@ const { CheckForDuplicateEVentName } = require('../Services/event');
 
 const createEvent = async (req, res) => {
   try {
-    console.log("Got " , req.body)
     const { eventName , hostName } = req.body
     const duplicateCheck = await CheckForDuplicateEVentName({eventName})
     if( !duplicateCheck ) throw new Error( "Event Name already Taken" )
@@ -21,6 +20,7 @@ const createEvent = async (req, res) => {
 };
 
 const getAllEvents = async (req, res) => {
+  console.log("Events are Called")
   try {
     const events = await EVENT.find();
     res.status(200).json(events);

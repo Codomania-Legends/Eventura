@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "../Liked/Liked.css"
 import backarrow from "/backarrow.png"
-import { gsap } from 'gsap'
+// import { gsap } from 'gsap'
 import LikedEvents from '../Liked/LikedEvents'
 import axios from 'axios'
 
@@ -21,27 +21,27 @@ function Saved({ class__, showSaved, setShowSaved, onClose }) {
         handleGetAllSavedEvents()
     }, [])
 
-    useEffect(() => {
-        if (showSaved && reference.current) {
-            gsap.fromTo(reference.current,
-                { opacity: 0, y: -100 },
-                { opacity: 1, y: 0, duration: 1, ease: "power2.inOut" });
-        }
-    }, [showSaved]);
+    // useEffect(() => {
+    //     if (showSaved && reference.current) {
+    //         // gsap.fromTo(reference.current,
+    //             { opacity: 0, y: -100 },
+    //             { opacity: 1, y: 0, duration: 1, ease: "power2.inOut" });
+    //     }
+    // }, [showSaved]);
 
-    const handleFadeOut = () => {
-        if (reference.current) {
-            gsap.to(reference.current, {
-                opacity: 0,
-                y: -100,
-                duration: 0.8,
-                ease: "power2.inOut",
-                onComplete: () => {
-                    onClose()
-                }
-            })
-        }
-    }
+    // const handleFadeOut = () => {
+    //     if (reference.current) {
+    //         // gsap.to(reference.current, {
+    //             opacity: 0,
+    //             y: -100,
+    //             duration: 0.8,
+    //             ease: "power2.inOut",
+    //             onComplete: () => {
+    //                 onClose()
+    //             }
+    //         })
+    //     }
+    // }
 
     return (
         <>
