@@ -11,6 +11,7 @@ import ManageEvent from "./Components/DashBoard/DashManageEvent/ManageEvent.jsx"
 import Blog from "./Components/Blog/Blog.jsx"
 import Reminder from "./Components/DashBoard/Reminder/Reminder.jsx"
 import YourRegistrations from "./Components/DashBoard/DashYourRegistration/YourRegistrations.jsx"
+import SHow from "./Components/Certificate/SHow.jsx"
 
 createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -24,6 +25,7 @@ createRoot(document.getElementById('root')).render(
       <Route path="/dashboard/reminder" element={<Reminder/>}></Route>
       <Route path="/dashboard/registration" element={<YourRegistrations/>}></Route>
       <Route path="/blog" element={<Blog />}></Route>
+      <Route path="/t" element={<SHow />}></Route>
     </Routes>
   </BrowserRouter>
 )

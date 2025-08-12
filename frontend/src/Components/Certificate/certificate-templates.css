@@ -1,0 +1,143 @@
+.certificate {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.default-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+}
+
+.logo {
+  object-fit: contain;
+}
+
+.header,
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #6b7280;
+  margin: 10px 0;
+}
+
+.recipient {
+  font-size: 36px;
+  font-weight: 600;
+}
+
+.event span {
+  font-weight: 500;
+}
+
+.line {
+  border-bottom: 1px solid #9ca3af;
+  height: 1px;
+  width: 200px;
+  margin: auto;
+}
+
+.signature p,
+.signature-text {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.certificate.classic {
+  border: 4px solid #111827;
+  padding: 40px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  font-family: Georgia, serif;
+}
+
+.certificate.classic .body {
+  text-align: center;
+  border-top: 1px solid #d1d5db;
+  border-bottom: 1px solid #d1d5db;
+  padding: 40px 0;
+}
+
+.certificate.modern-gradient .gradient-header {
+  background: linear-gradient(to right, #4f46e5, #ec4899, #f59e0b);
+  color: white;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.certificate.modern-gradient .body {
+  padding: 40px;
+}
+
+.certificate.modern-gradient .seal {
+  width: 140px;
+  height: 48px;
+  background: #f3f4f6;
+  border: 1px solid #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.certificate.minimal {
+  border: 1px solid #f3f4f6;
+  padding: 48px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.certificate.minimal .body {
+  text-align: center;
+  padding: 48px 0;
+}
+
+.certificate.badge-style {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  padding: 24px;
+  border: 1px solid #f3f4f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.badge-logo .badge-circle {
+  background: linear-gradient(to top right, #fcd34d, #f87171);
+  padding: 16px;
+  border-radius: 50%;
+}
+
+.badge-logo .badge-circle .logo {
+  background: white;
+  border-radius: 50%;
+}
+
+.badge-content {
+  flex: 1;
+}
+
+.badge-content .title-date {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.issuer-block .label {
+  font-size: 12px;
+  color: #9ca3af;
+}
