@@ -20,5 +20,6 @@ connectMongoDB(url)
 
 app.use( "/user" , userRouter)
 app.use( "/event" , authenticateToken , eventRouter )
+app.use( "" )
 
 app.listen( PORT , () => console.log(`Server Started at PORT : ${PORT}`) )
