@@ -4,81 +4,47 @@ import event1 from "/eve.jpg"
 import event2 from "/eveista.jpg"
 import work1 from "/workshop1.jpg"
 import work2 from "/workshop2.jpg"
-// import { gsap } from 'gsap';
-// import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
 function Pastevent() {
-  const box1Ref = useRef();
-  const box2Ref = useRef();
+  
+  // PasEvent Animations
+  const pastEventRef = useRef(null)
+  const box1Ref = useRef(null)
+  const box2Ref = useRef(null)
+  const box3Ref = useRef(null)
+  useEffect(() => {
 
-  // useEffect(() => {
-    // gsap.set([box1Ref.current, box2Ref.current], { clearProps: 'all' });
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
 
-    const animateBox1 = () => {
-      // gsap.fromTo(box1Ref.current,
-      //   { x: 0, y: 0, rotate: 0 },
-      //   {
-      //     x: '-15em',
-      //     y: '4em',
-      //     rotate: -10,
-      //     duration: 0.2,
-      //     ease: 'linear',
-      //   }
-      // );
+        gsap.fromTo(box1Ref.current, { x: 0, opacity: 0 }, { x: 250,y:40, opacity: 1, duration: 0.2,rotation : 10 });
+        gsap.fromTo(box2Ref.current, { x: 0, opacity: 0 }, { x: -250,y:40,opacity: 1, duration: 0.2,rotation : -10 });
+        gsap.fromTo(box3Ref.current, { x: 0, opacity: 0 }, { x : 0, opacity: 1, duration: 0.2 });
+
+        observer.disconnect();
+      }
+    }, { threshold: 0.1 });
+
+    if (pastEventRef.current) {
+      observer.observe(pastEventRef.current);
+    }
+
+    return () => {
+      observer.disconnect(); 
+      gsap.killTweensOf([box1Ref.current, box2Ref.current, box3Ref.current]); 
     };
-    const animateBox2 = () => {
-      // gsap.fromTo(box2Ref.current,
-      //   { x: 0, y: 0, rotate: 0 },
-      //   {
-      //     x: '15em',
-      //     y: '4em',
-      //     rotate: 10,
-      //     duration: 0.2,
-      //     ease: 'linear',
-      //   }
-      // );
-    };
+  }, []);
 
-    // ScrollTrigger.create({
-    //   trigger: box1Ref.current,
-    //   start: '50% 80%',
-    //   toggleActions: 'none none none none',
-    //   onEnter: animateBox1,
-    //   onEnterBack: animateBox1,
-    //   // onLeave: () => gsap.set(box1Ref.current, { x: 0, y: 0, rotate: 0 }),
-    //   // onLeaveBack: () => gsap.set(box1Ref.current, { x: 0, y: 0, rotate: 0 }),
-    // });
-    // ScrollTrigger.create({
-    //   trigger: box2Ref.current,
-    //   start: '50% 80%',
-    //   toggleActions: 'none none none none',
-    //   onEnter: animateBox2,
-    //   onEnterBack: animateBox2,
-    //   // onLeave: () => gsap.set(box2Ref.current, { x: 0, y: 0, rotate: 0 }),
-    //   // onLeaveBack: () => gsap.set(box2Ref.current, { x: 0, y: 0, rotate: 0 }),
-    // });
-    // const handleHover = (selector, target) => {
-    //   const el = document.querySelector(selector);
-    //   if (!el) return;
-    //   el.addEventListener("mouseover", () => {
-    //   // gsap.to(target, { scale: 1.1, zIndex: 2, duration: 0.05 , ease:"power2.inOut" });
-    //   });
-    //   el.addEventListener("mouseout", () => {
-    //   // gsap.to(target, { scale: 1, zIndex: 0, duration: 0.05 , ease:"power2.inOut" });
-    //   });
-  //   };
-
-  //   handleHover(".div-box1", box1Ref.current);
-  //   handleHover(".div-box2", box2Ref.current);
-  //   handleHover(".div-box3", document.querySelector(".div-box3"));
-  // }, []);
+  // PasEvent Animations 
 
   return (
     <>
-        <main id='pastpage' className="past-main flex">
-            <div className="div-box1 flex" ref={box1Ref}>
+        <main ref={pastEventRef} id='pastpage' className="past-main flex">
+            <div ref={box1Ref} className="div-box1 flex" >
             <div className="images flex">
                 <div className="work-img-1">
                     <img src={work1} alt="" className='work1-img' />
@@ -96,7 +62,7 @@ function Pastevent() {
                 </div>
               </div>
             </div>
-            <div className="div-box2 flex" ref={box2Ref}>
+            <div ref={box2Ref} className="div-box2 flex" >
               <div className="images flex">
                 <div className="work-img-1">
                     <img src={work1} alt="" className='work1-img' />
@@ -114,7 +80,7 @@ function Pastevent() {
                 </div>
               </div>
             </div>
-            <div className="div-box3 flex">
+            <div ref={box3Ref} className="div-box3 flex">
             <div className="images flex">
                 <div className="event-img-1">
                   <img src={event1} alt="" className='event1-img' />

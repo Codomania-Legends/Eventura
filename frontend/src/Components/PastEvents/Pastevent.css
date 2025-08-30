@@ -37,6 +37,7 @@
 
 .div-box1:hover , .div-box2:hover , .div-box3:hover{
     cursor: pointer;
+    z-index: 2;
 }
 
 @keyframes Animate-box1 {

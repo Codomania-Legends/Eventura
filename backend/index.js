@@ -6,6 +6,7 @@ const { eventRouter } = require("./Routes/event")
 const PORT = process.env.PORT
 const app = express()
 const cors = require("cors")
+const {c_router} = require("./Routes/certificate")
 const { authenticateToken } = require("./Authentication/auth")
 
 app.use(cors({
@@ -20,6 +21,6 @@ connectMongoDB(url)
 
 app.use( "/user" , userRouter)
 app.use( "/event" , authenticateToken , eventRouter )
-app.use( "" )
+app.use( "/certificate" , c_router )
 
 app.listen( PORT , () => console.log(`Server Started at PORT : ${PORT}`) )

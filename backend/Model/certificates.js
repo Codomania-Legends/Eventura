@@ -1,12 +1,21 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
-const Schema = new mongoose.Schema({
-    eventName : { required : true , unique : true , type : String },
-    certificateSelected : { required : true , type : String },
-    winners : [ new mongoose.Schema( { u_id : {type : String} , pos : {enum : ["First" , "Runner up"]} } ) ],
-    participants : [ new mongoose.Schema( { u_id : { type : String , unique : true } } ) ]
-})
+const winnerSchema = new mongoose.Schema({
+  u_id: { type: String, },
+  pos: { type: String, enum: ["First", "Runner up"], }
+});
 
-const CERTIFICATE = new mongoose.model("certificates" , Schema)
+const participantSchema = new mongoose.Schema({
+  u_id: { type: String }
+});
 
-module.exports = { CERTIFICATE }
+const certificateSchema = new mongoose.Schema({
+  eventName: { type: String, required: true, unique: true },
+  certificateSelected: { type: String, required: true },
+  winners: [winnerSchema],
+  participants: [participantSchema]
+});
+
+const CERTIFICATE = mongoose.model("Certificate", certificateSchema);
+
+module.exports = CERTIFICATE;
