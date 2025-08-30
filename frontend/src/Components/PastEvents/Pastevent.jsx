@@ -6,6 +6,7 @@ import work1 from "/workshop1.jpg"
 import work2 from "/workshop2.jpg"
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Intersection_Observer from '../../Utils/IntersectionObserver'
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -17,18 +18,7 @@ function Pastevent() {
   const box2Ref = useRef(null)
   const box3Ref = useRef(null)
   useEffect(() => {
-
-    const observer = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-
-        gsap.fromTo(box1Ref.current, { x: 0, opacity: 0 }, { x: 250,y:40, opacity: 1, duration: 0.2,rotation : 10 });
-        gsap.fromTo(box2Ref.current, { x: 0, opacity: 0 }, { x: -250,y:40,opacity: 1, duration: 0.2,rotation : -10 });
-        gsap.fromTo(box3Ref.current, { x: 0, opacity: 0 }, { x : 0, opacity: 1, duration: 0.2 });
-
-        observer.disconnect();
-      }
-    }, { threshold: 0.1 });
-
+    const observer = Intersection_Observer( "pastevents" , box1Ref , box2Ref , box3Ref )
     if (pastEventRef.current) {
       observer.observe(pastEventRef.current);
     }
