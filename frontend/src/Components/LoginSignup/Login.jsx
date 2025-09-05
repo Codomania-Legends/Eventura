@@ -11,20 +11,20 @@ function Login() {
 
   useEffect( () => {
     // const timeLine = gsap.timeline()
-    timeLine.from( ".img-login-back" , {
-      opacity : 0,
-      x : 100,
-      duration : 1
-    } )
-    timeLine.from( ".man-image-login" , {
-      opacity : 0,
-      x : -10,
-      duration : 0.5
-    } )
-    timeLine.from( ".leaf-image-login" , {
-      opacity : 0,
-      duration : 0.5
-    } )
+    // timeLine.from( ".img-login-back" , {
+    //   opacity : 0,
+    //   x : 100,
+    //   duration : 1
+    // } )
+    // timeLine.from( ".man-image-login" , {
+    //   opacity : 0,
+    //   x : -10,
+    //   duration : 0.5
+    // } )
+    // timeLine.from( ".leaf-image-login" , {
+    //   opacity : 0,
+    //   duration : 0.5
+    // } )
   } , [] )
 
   const handleSubmit = async (e) => {

@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import gsap from "gsap"
 
 function DashSideBar({active}) {
+  active = !active ? 0 : active
   const navigate = useNavigate()
   const activeNames = ["Home","All Events","Your Registrations","Host Event","Manage Event","Your Reminders"]
   
@@ -23,7 +24,7 @@ function DashSideBar({active}) {
   // } , [] )
   
   return (
-    <>
+    <section className="sidebar-dash flex">
       <div className="activeOptionDash flex">
         <div className='flex' style={{"width": "80%","height": "50%","justify-content": "start"}}>
           <img className='arrow-sidebar' src='/arrow.png' />
@@ -73,7 +74,7 @@ function DashSideBar({active}) {
           <span>Profile</span>
         </div>
       </div>
-    </>
+    </section>
   )
 }
 

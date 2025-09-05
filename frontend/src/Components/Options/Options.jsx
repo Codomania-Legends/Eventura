@@ -22,7 +22,7 @@ function Options() {
       ease: "back",
       stagger: 0.15
     });
-    [-150 , -50 , 50 , -50 , -150].map( ( v , i ) => {
+    [-150 , -50 , 50 , -50 , -150 ].map( ( v , i ) => {
       gsap.to( optionsRef.current[i] , { x : v } )
     } )
   }

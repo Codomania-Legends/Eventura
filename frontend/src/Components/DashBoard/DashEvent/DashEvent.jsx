@@ -25,71 +25,71 @@ function DashEvent() {
             } )
             setRegisteredEevents(e)
         }
-        async function handleGetAllEvents() {
-            if (!localStorage.getItem("token")) {
-                navigate("/login");
-                return;
-            }
+        // async function handleGetAllEvents() {
+        //     if (!localStorage.getItem("token")) {
+        //         navigate("/login");
+        //         return;
+        //     }
 
-            const username = localStorage.getItem("username");
-            const url = "http://localhost:5000/event";
-            const cache = await caches.open("eventura-cache-v1");
+        //     const username = localStorage.getItem("username");
+        //     const url = "http://localhost:5000/event";
+        //     const cache = await caches.open("eventura-cache-v1");
 
-            const cachedResponse = await cache.match(url);
+        //     const cachedResponse = await cache.match(url);
 
-            if (cachedResponse) {
-                const data = await cachedResponse.json();
-                console.log("📦 Loaded events from cache");
+        //     if (cachedResponse) {
+        //         const data = await cachedResponse.json();
+        //         console.log("📦 Loaded events from cache");
 
-                setEvents(data);
-                setAll(data);
-                handleSetRegistsredEvents(data, username);
-            } else {
-                const res = await axios.get(url, {
-                    headers: {
-                        "Content-Type": "application/json",
-                        Authorization: `Bearer ${localStorage.getItem("token")}`,
-                    },
-                });
-                console.log(res)
-                const data = await res.clone().json(); // Use clone for caching
-                console.log("🌐 Loaded events from server");
+        //         setEvents(data);
+        //         setAll(data);
+        //         handleSetRegistsredEvents(data, username);
+        //     } else {
+        //         const res = await axios.get(url, {
+        //             headers: {
+        //                 "Content-Type": "application/json",
+        //                 Authorization: `Bearer ${localStorage.getItem("token")}`,
+        //             },
+        //         });
+        //         console.log(res)
+        //         const data = await res.clone().json(); // Use clone for caching
+        //         console.log("🌐 Loaded events from server");
 
-                setEvents(data);
-                setAll(data);
-                handleSetRegistsredEvents(data, username);
+        //         setEvents(data);
+        //         setAll(data);
+        //         handleSetRegistsredEvents(data, username);
 
-                cache.put(url, res); // Save response to cache
-            }
-        }
+        //         cache.put(url, res); // Save response to cache
+        //     }
+        // }
 
-        handleGetAllEvents();
+        // handleGetAllEvents();
     }, []);
 
-    useEffect(() => {
-        if ( events.length === 0 ) return;
+    // useEffect(() => {
+    //     if ( events.length === 0 ) return;
 
-        async function handleCacheImages() {
-            const cache = await caches.open("eventura-cache-v1")
-            for (let event of events) {
-                const url = new URL(event.image, window.location.origin).href
-                const match = await cache.match(url)
-                if (!match) {
-                    try {
-                        await cache.add(url)
-                        console.log("Cached:", url)
-                    } catch (err) {
-                        console.error("Failed to cache:", url, err)
-                    }
-                }
-            }
-            setImageLoaded(true)    
-        }
-        handleCacheImages()
-        caches.open("eventura-cache-v1").then((cach) => {
-            console.log("cache : " ,cach)
-        })
-    }, [events]);
+    //     async function handleCacheImages() {
+    //         const cache = await caches.open("eventura-cache-v1")
+    //         for (let event of events) {
+    //             const url = new URL(event.image, window.location.origin).href
+    //             const match = await cache.match(url)
+    //             if (!match) {
+    //                 try {
+    //                     await cache.add(url)
+    //                     console.log("Cached:", url)
+    //                 } catch (err) {
+    //                     console.error("Failed to cache:", url, err)
+    //                 }
+    //             }
+    //         }
+    //         setImageLoaded(true)    
+    //     }
+    //     handleCacheImages()
+    //     caches.open("eventura-cache-v1").then((cach) => {
+    //         console.log("cache : " ,cach)
+    //     })
+    // }, [events]);
 
     useEffect( () => {
         if (moveToLast.eventName) {
@@ -101,37 +101,29 @@ function DashEvent() {
 
     return (
         <>
-                <div className="dashbody flex">
-                    <section className="sidebar-dash flex">
-                        <DashSideBar active={1} />
-                    </section>
-                    <section className="content-dash flex">
-                        <div className="navbar-dash-body">
-                            <DashNav />
+            {/* <div className="dashbody flex"> */}
+                <div className="AlleventsAndFilter flex">
+                    <div className="allEventsContentBody flex">
+                        {(imageLoaded && events.length > 0) ? (
+                            events.map((each) => (
+                                <Event setMoveToLast={setMoveToLast} key={each._id} event={each} registeredEevents={registeredEevents} />
+                            ))
+                        ) : (
+                            <div className="loader-container">LOADING EVENTS...</div>
+                        )}
+                    </div>
+                    <div className="otherFilterOptions flex">
+                        <div className="optionsFilter flex">
+                            <FilterOption img={"/online-video.png"} text={"Webinar"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
+                            <FilterOption img={"/seminar.png"} text={"Workshop"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
+                            <FilterOption img={"/competition.png"} text={"Contests"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
+                            <FilterOption img={"/hackathon.png"} text={"Hackathon"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
+                            <FilterOption img={"/calendar.png"} text={"Casual Events"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
                         </div>
-                        <div className="AlleventsAndFilter flex">
-                            <div className="allEventsContentBody flex">
-                                {(imageLoaded && events.length > 0) ? (
-                                    events.map((each) => (
-                                        <Event setMoveToLast={setMoveToLast} key={each._id} event={each} registeredEevents={registeredEevents} />
-                                    ))
-                                ) : (
-                                    <div className="loader-container">LOADING EVENTS...</div>
-                                )}
-                            </div>
-                            <div className="otherFilterOptions flex">
-                                <div className="optionsFilter flex">
-                                    <FilterOption img={"/online-video.png"} text={"Webinar"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
-                                    <FilterOption img={"/seminar.png"} text={"Workshop"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
-                                    <FilterOption img={"/competition.png"} text={"Contests"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
-                                    <FilterOption img={"/hackathon.png"} text={"Hackathon"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
-                                    <FilterOption img={"/calendar.png"} text={"Casual Events"} setAll={setAll} allEvents={allEvents} setEvents={setEvents} events={events} />
-                                </div>
-                            </div>
-                            <BottomFilter />
-                        </div>
-                    </section>
+                    </div>
+                    <BottomFilter />
                 </div>
+            {/* </div> */}
         </>
     )
 }
